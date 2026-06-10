@@ -1,0 +1,407 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:'Patrick Hand', cursive;
+
+    background:#f5f1ea;
+}
+
+/* ========================= */
+/* NOTEBOOK BACKGROUND */
+/* ========================= */
+
+.notebook{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    background-image:url("notebook-bg.png");
+    background-size:cover;
+    background-position:center;
+}
+
+/* ========================= */
+/* PAGE NUMBER */
+/* ========================= */
+
+.page-label{
+
+    position:absolute;
+
+    top:55px;
+    left:95px;
+
+    font-size:18px;
+
+    color:#222;
+
+    font-family:Arial, sans-serif;
+
+    letter-spacing:1px;
+}
+
+/* ========================= */
+/* TOP LINE */
+/* ========================= */
+
+.top-line{
+
+    position:absolute;
+
+    top:90px;
+    left:95px;
+
+    width:1450px;
+    height:1px;
+
+    background:#d7d2ca;
+}
+
+/* ========================= */
+/* TITLE */
+/* ========================= */
+
+.title-wrap{
+
+    position:absolute;
+
+    left:210px;
+    top:150px;
+}
+
+.title{
+
+    font-family:'Permanent Marker', cursive;
+
+    color:#000;
+
+    line-height:.9;
+
+    transform:rotate(-4deg);
+}
+
+.kim{
+
+    font-size:115px;
+}
+
+.notebook-title{
+
+    font-size:125px;
+
+    margin-top:10px;
+}
+
+.marker{
+
+    position:absolute;
+
+    width:420px;
+    height:22px;
+
+    background:#efd67d;
+
+    left:0;
+    top:190px;
+
+    transform:rotate(-8deg);
+
+    z-index:-1;
+}
+
+.volume{
+
+    position:absolute;
+
+    left:230px;
+    top:290px;
+
+    color:#d18b29;
+
+    font-size:42px;
+}
+
+/* ========================= */
+/* PROFILE */
+/* ========================= */
+
+.profile{
+
+    position:absolute;
+
+    left:210px;
+    top:520px;
+}
+
+.profile h2{
+
+    font-size:62px;
+
+    font-weight:normal;
+}
+
+.profile p{
+
+    font-size:58px;
+
+    margin-top:10px;
+}
+
+/* ========================= */
+/* STAMP */
+/* ========================= */
+
+.stamp{
+
+    position:absolute;
+
+    right:210px;
+    top:80px;
+
+    width:210px;
+    height:210px;
+
+    border:5px solid #a25d4f;
+
+    border-radius:50%;
+
+    color:#a25d4f;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    transform:rotate(-18deg);
+
+    opacity:.8;
+}
+
+.stamp span{
+
+    font-size:22px;
+
+    letter-spacing:2px;
+}
+
+.stamp strong{
+
+    font-size:56px;
+
+    margin:8px 0;
+}
+
+.stamp small{
+
+    font-size:18px;
+}
+
+/* ========================= */
+/* MEMO */
+/* ========================= */
+
+.memo{
+
+    position:absolute;
+
+    right:250px;
+    top:360px;
+
+    width:360px;
+    height:520px;
+
+    background:#f8f3ec;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+
+    padding:50px;
+}
+
+.tape{
+
+    position:absolute;
+
+    width:140px;
+    height:35px;
+
+    background:#d7bf96;
+
+    top:-15px;
+    left:110px;
+
+    transform:rotate(-7deg);
+}
+
+.memo h3{
+
+    text-align:center;
+
+    font-size:58px;
+
+    margin-bottom:20px;
+}
+
+.memo-line{
+
+    width:100%;
+    height:1px;
+
+    background:#999;
+
+    margin-bottom:30px;
+}
+
+.memo ul{
+
+    list-style:none;
+}
+
+.memo li{
+
+    font-size:40px;
+
+    margin-bottom:28px;
+}
+
+/* ========================= */
+/* POLAROID */
+/* ========================= */
+
+.polaroid{
+
+    position:absolute;
+
+    left:280px;
+    bottom:70px;
+
+    width:330px;
+
+    background:white;
+
+    padding:15px 15px 55px;
+
+    box-shadow:
+    0 15px 25px rgba(0,0,0,.15);
+
+    transform:rotate(-7deg);
+}
+
+.polaroid img{
+
+    width:100%;
+
+    display:block;
+}
+
+.polaroid p{
+
+    text-align:center;
+
+    font-size:34px;
+
+    margin-top:15px;
+}
+
+.polaroid-tape{
+
+    position:absolute;
+
+    top:-15px;
+    left:90px;
+
+    width:170px;
+    height:35px;
+
+    background:#d7bf96;
+
+    transform:rotate(8deg);
+}
+
+/* ========================= */
+/* STAR */
+/* ========================= */
+
+.star{
+
+    position:absolute;
+
+    left:1020px;
+    top:620px;
+
+    font-size:70px;
+
+    transform:rotate(-15deg);
+}
+
+/* ========================= */
+/* START TEXT */
+/* ========================= */
+
+.start-text{
+
+    position:absolute;
+
+    left:1080px;
+    bottom:120px;
+
+    font-size:52px;
+
+    transform:rotate(-8deg);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.open-btn{
+
+    position:absolute;
+
+    right:180px;
+    bottom:90px;
+
+    width:320px;
+    height:90px;
+
+    border:none;
+
+    border-radius:45px;
+
+    background:#000;
+
+    color:#fff;
+
+    font-size:34px;
+
+    font-family:'Patrick Hand', cursive;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.open-btn:hover{
+
+    transform:translateY(-5px);
+}
