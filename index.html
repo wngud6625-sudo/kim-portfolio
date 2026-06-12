@@ -1,39 +1,287 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>KIM PORTFOLIO</title>
-        <link rel="stylesheet" href="css/main.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/sec.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
         <script src="js/mainjs.js" defer></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Maru+Buri:wght@400;600&family=Gowun+Dodum&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <!-- 메뉴 -->
         <div class="book-tabs">
             <a href="#about" class="tab tab1">ABOUT</a>
-
-            <a href="#project" class="tab tab2">PROJECT</a>
-
-            <a href="#work" class="tab tab3">WORK</a>
-
+            <a href="#works" class="tab tab2">PROJECT</a>
+            <a href="#tools" class="tab tab3">WORK</a>
             <a href="#contact" class="tab tab4">CONTACT</a>
         </div>
 
         <!-- 메인 히어로 -->
         <section class="main">
-            <img src="images/main.png" alt="" class="bg" />
+            <img src="images/note2.png" alt="" class="bg" />
+            <div class="paper-btn">
+                <img src="images/paper.png" alt="" />
+                <span>OPEN NOTEBOOK</span>
+            </div>
+            <div class="start-note">Let's Start!</div>
+            <!-- 폴라로이드 -->
+            <div class="polaroid">
+                <video class="polaroid-video" autoplay muted loop playsinline>
+                    <source src="images" type="video/mp4" />
+                </video>
+                <img src="images/마스킹폴라.png" class="polaroid-frame" />
+            </div>
         </section>
-        <section class="main2">
-            <img src="images/main_hero.png" alt="" class="bg" />
-            <div class="inner"></div>
+
+        <!-- SECTION 2: ABOUT -->
+        <section id="about" class="note-section">
+            <img src="images/note back.png" class="bg" />
+
+            <div class="inner">
+                <span class="page-number">PAGE 01</span>
+                <h2 class="title-about">ABOUT</h2>
+
+                <div class="about-container">
+                    <!-- 왼쪽 본문 텍스트 영역 -->
+                    <div class="about-text-content">
+                        <p class="greeting">안녕하세요.</p>
+                        <p class="main-desc">
+                            정보를 이해하기 쉽게 전달하고,<br />
+                            장면에 감정을 담는 것을 좋아하는<br />
+                            영상편집자 <span class="highlight-name">김주형</span>입니다.
+                        </p>
+
+                        <div class="handwriting-line"></div>
+
+                        <p class="sub-desc">
+                            모션그래픽과 인포그래픽을 기반으로<br />
+                            스토리를 시각적으로 전달합니다.
+                        </p>
+
+                        <!-- 좋아하는 작업 섹션 (스티커 느낌) -->
+                        <div class="favorite-section">
+                            <div class="favorite-title"><span class="curve-arrow">➔</span> 좋아하는 작업 ★</div>
+                            <div class="favorite-tags">인포그래픽 / 모션그래픽 / 스토리텔링 / 시네마틱 연출</div>
+                        </div>
+                    </div>
+
+                    <!-- 오른쪽 폴라로이드 사진 영역 -->
+                    <div class="about-photo-content">
+                        <div class="photo-polaroid">
+                            <div class="masking-tape"></div>
+                            <img src="profile.jpg" alt="김주형 프로필 사진" class="profile-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <!-- 버튼 -->
-        <div class="paper-btn">
-            <img src="images/paper.png" alt="" />
-            <span>OPEN NOTEBOOK</span>
-        </div>
-        <div class="start-note">Let's Start!</div>
+
+        <!-- SECTION 3: WORKS (image_a112c7.jpg 레이아웃 완벽 매칭 + 스크롤 보드 구성) -->
+        <section id="works" class="note-section2">
+            <img src="images/note back.png" class="bg" />
+
+            <div class="inner">
+                <!-- 상단 타이틀 영역 -->
+                <span class="page-number">PAGE 03</span>
+                <h2 class="section-title">SELECTED WORKS <span class="sub-hand-title">┌ 주요 작업들 ★</span></h2>
+
+                <!-- 전체를 감싸는 정갈한 사각형 큰 박스 -->
+                <div class="works-board-box">
+                    <!-- CASE 01 -->
+                    <div class="work-list-item">
+                        <div class="work-thumb">
+                            <img src="images/thumb01.jpg" alt="설탕과다사용부담금" />
+                        </div>
+                        <div class="work-info-center">
+                            <div class="case-tag">CASE 01</div>
+                            <h3 class="work-item-title">설탕과다사용부담금</h3>
+                            <span class="work-year">2026</span>
+                            <p class="work-item-desc">
+                                설탕 과다 섭취 문제를 쉽고 직관적으로 전달하기 위한 인포그래픽 영상
+                            </p>
+                        </div>
+                        <div class="work-meta-right">
+                            <div class="tools-wrapper">
+                                <span class="tools-label">TOOLS</span>
+                                <div class="tools-icons">
+                                    <span class="icon-square">Ae</span>
+                                    <span class="icon-square">Ai</span>
+                                    <span class="icon-square">Ps</span>
+                                </div>
+                            </div>
+                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE 02 -->
+                    <div class="work-list-item">
+                        <div class="work-thumb">
+                            <img src="images/thumb02.jpg" alt="범죄예방 캠페인" />
+                        </div>
+                        <div class="work-info-center">
+                            <div class="case-tag">CASE 02</div>
+                            <h3 class="work-item-title">범죄예방 캠페인 <span class="en-title">Crime Motion</span></h3>
+                            <span class="work-year">2026</span>
+                            <p class="work-item-desc">범죄의 심각성을 경고하고 예방의 메시지를 전달하는 모션그래픽</p>
+                        </div>
+                        <div class="work-meta-right">
+                            <div class="tools-wrapper">
+                                <span class="tools-label">TOOLS</span>
+                                <div class="tools-icons">
+                                    <span class="icon-square">Ae</span>
+                                    <span class="icon-square">Ai</span>
+                                    <span class="icon-square">Ps</span>
+                                </div>
+                            </div>
+                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE 03 -->
+                    <div class="work-list-item">
+                        <div class="work-thumb">
+                            <img src="images/thumb03.jpg" alt="Escape Room" />
+                        </div>
+                        <div class="work-info-center">
+                            <div class="case-tag">CASE 03</div>
+                            <h3 class="work-item-title">Escape Room</h3>
+                            <span class="work-year">2026</span>
+                            <p class="work-item-desc">스토리텔링 중심의 모션그래픽으로 몰입감 있는 연출을 구현</p>
+                        </div>
+                        <div class="work-meta-right">
+                            <div class="tools-wrapper">
+                                <span class="tools-label">TOOLS</span>
+                                <div class="tools-icons">
+                                    <span class="icon-square">Ae</span>
+                                    <span class="icon-square">Pr</span>
+                                    <span class="icon-square">Ps</span>
+                                </div>
+                            </div>
+                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
+                        </div>
+                    </div>
+
+                    <!-- CASE 04 -->
+                    <div class="work-list-item">
+                        <div class="work-thumb">
+                            <img src="images/thumb04.jpg" alt="Forest Memories" />
+                        </div>
+                        <div class="work-info-center">
+                            <div class="case-tag">CASE 04</div>
+                            <h3 class="work-item-title">Forest Memories</h3>
+                            <span class="work-year">2026</span>
+                            <p class="work-item-desc">감정선의 흐름과 미장센을 강조한 스토리텔링 애니메이션</p>
+                        </div>
+                        <div class="work-meta-right">
+                            <div class="tools-wrapper">
+                                <span class="tools-label">TOOLS</span>
+                                <div class="tools-icons">
+                                    <span class="icon-square">Ae</span>
+                                    <span class="icon-square">Pr</span>
+                                    <span class="icon-square">Ai</span>
+                                </div>
+                            </div>
+                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TOOLS & SKILLS (보유 기술 스택) -->
+        <section id="tools" class="note-section3">
+            <img src="images/note back.png" class="bg" />
+            <div class="inner">
+                <span class="page-number">PAGE 03</span>
+                <h2 class="section-title">SKILLS & TOOLS</h2>
+
+                <div class="tools-container">
+                    <div class="tool-card">
+                        <div class="clip">📎</div>
+                        <h3>VIDEO EDITING</h3>
+                        <ul class="skill-list">
+                            <li><span class="check">✔</span> Premiere Pro (상) - 컷 편집 / 오디오 믹싱</li>
+                            <li><span class="check">✔</span> After Effects (중상) - 모션 템플릿 제작 및 합성</li>
+                            <li><span class="check">✔</span> DaVinci Resolve (중) - 기본 컬러 그레이딩 및 보정</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="clip">📎</div>
+                        <h3>DESIGN & CREATIVE</h3>
+                        <ul class="skill-list">
+                            <li><span class="check">✔</span> Photoshop / Illustrator - 소스 오브젝트 직접 드로잉</li>
+                            <li><span class="check">✔</span> Storyboard Drawing - 영상 연출안 기획 및 시각화</li>
+                            <li><span class="check">✔</span> Sound Sourcing - 장면에 최적화된 SFX 연출 능력</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONTACT (연락처 및 아웃트로) -->
+        <section id="contact" class="note-section4">
+            <img src="images/note back.png" class="bg" />
+
+            <div class="inner">
+                <span class="page-number">PAGE 06</span>
+
+                <div class="contact-wrapper">
+                    <div class="contact-left">
+                        <h2 class="title-contact">CONTACT <span class="star">★</span></h2>
+
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <div class="icon-box email-icon"></div>
+                                <div class="info-box">
+                                    <span class="label">Email</span>
+                                    <span class="value">juhyeong_edit@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="icon-box instagram-icon"></div>
+                                <div class="info-box">
+                                    <span class="label">Instagram</span>
+                                    <span class="value">@juhyeong_edit</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="icon-box behance-icon"></div>
+                                <div class="info-box">
+                                    <span class="label">Behance</span>
+                                    <span class="value">behance.net/juhyeong</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="icon-box phone-icon"></div>
+                                <div class="info-box">
+                                    <span class="label">Phone</span>
+                                    <span class="value">010-1234-5678</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cloud-comment">
+                            <p>함께 멋진 프로젝트를<br />만들고 싶습니다!</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-right"></div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
