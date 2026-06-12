@@ -1,0 +1,728 @@
+/* ==========================================
+   기본 초기화 및 공통 레이아웃 스타일 
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+section {
+    height: 100vh;
+    width: 100%;
+}
+.inner {
+    max-width: 1480px;
+    margin: auto;
+}
+
+/* ==========================================
+   메뉴 고정 및 탭 스타일 
+   ========================================== */
+.book-tabs {
+    position: fixed;
+    right: 0;
+    top: 180px;
+    z-index: 100;
+}
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 60px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #4b3c2a;
+    background: #d6c3a1;
+    border: 1px solid rgba(80, 60, 40, 0.15);
+    transition: 0.3s;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.12);
+    text-transform: uppercase;
+}
+.tab:hover {
+    transform: translateX(-7px);
+    background: #ccb58d;
+    color: #2e2116;
+    box-shadow: -8px 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================
+   메인 히어로 섹션 스타일 
+   ========================================== */
+.main {
+    position: relative;
+    overflow: hidden;
+}
+.main .bg {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.paper-btn {
+    position: absolute;
+    left: 240px;
+    top: 760px;
+    width: 320px;
+    height: 100px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+.paper-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.paper-btn span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Caveat", cursive;
+    font-size: 28px;
+    color: #222;
+    white-space: nowrap;
+}
+.paper-btn:hover {
+    transform: translateY(-8px);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
+}
+.paper-btn:active img {
+    transform: translateY(-3px);
+}
+.start-note {
+    position: absolute;
+    left: 500px;
+    top: 720px;
+    font-family: "Caveat", cursive;
+    font-size: 46px;
+    color: #333;
+    animation: doodleRotate 0.8s steps(1) infinite;
+}
+@keyframes doodleRotate {
+    0% {
+        transform: rotate(-6deg);
+    }
+    25% {
+        transform: rotate(-2deg);
+    }
+    50% {
+        transform: rotate(-9deg);
+    }
+    75% {
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: rotate(-6deg);
+    }
+}
+.polaroid {
+    position: absolute;
+    right: 160px;
+    bottom: 60px;
+    width: 900px;
+    z-index: 50;
+    transform: rotate(3deg);
+}
+.polaroid-video {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    width: 260px;
+    height: 270px;
+    object-fit: cover;
+}
+.polaroid-frame {
+    position: relative;
+    width: 100%;
+    display: block;
+    z-index: 2;
+}
+
+/* ==========================================
+   노트패드 공통 베이스 (SECTION 2, 3, 4, 5 통합 대응)
+   ========================================== */
+.note-section,
+.note-section2,
+.note-section3,
+.note-section4 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.note-section .bg,
+.note-section2 .bg,
+.note-section3 .bg,
+.note-section4 .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+.note-section .inner,
+.note-section2 .inner,
+.note-section3 .inner,
+.note-section4 .inner {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    height: 100%;
+    padding-top: 55px;
+    padding-left: 175px; /* 스프링선 침범 제어 */
+    padding-right: 140px; /* 우측 인덱스 탭 겹침 완충지대 확보 */
+    box-sizing: border-box;
+}
+
+/* 타이틀 정렬 요소들 */
+.page-number {
+    display: block;
+    font-family: "Arial", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #555555;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    line-height: 1;
+}
+.title-about,
+.section-title {
+    display: inline-block;
+    position: relative;
+    font-family: "Caveat", cursive;
+    font-size: 64px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.title-about::after,
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    bottom: -2px;
+    width: 106%;
+    height: 15px;
+    background-color: #f3d4a2;
+    z-index: -1;
+    opacity: 0.75;
+}
+
+/* ==========================================
+   SECTION 2: ABOUT 개별 스타일
+   ========================================== */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 55px;
+    width: 100%;
+}
+.about-text-content {
+    flex: 1.2;
+    font-family: "Pretendard", sans-serif;
+    color: #2c2c2c;
+}
+.about-text-content .greeting {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+.about-text-content .main-desc {
+    font-size: 20px;
+    line-height: 1.9;
+    letter-spacing: -0.5px;
+}
+.about-text-content .highlight-name {
+    font-weight: 700;
+    color: #000;
+}
+.about-text-content .handwriting-line {
+    width: 180px;
+    height: 1px;
+    background-color: #777777;
+    margin: 32px 0;
+}
+.about-text-content .sub-desc {
+    font-size: 19px;
+    line-height: 1.9;
+    color: #3d3d3d;
+}
+.favorite-section {
+    margin-top: 55px;
+}
+.favorite-title {
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 26px;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.favorite-section .curve-arrow {
+    transform: rotate(-30deg);
+    display: inline-block;
+    font-size: 20px;
+}
+.favorite-tags {
+    display: inline-block;
+    border: 1.5px solid #2b2b2b;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
+}
+.about-photo-content {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.photo-polaroid {
+    position: relative;
+    background-color: #ffffff;
+    padding: 18px 18px 75px 18px;
+    box-shadow: 5px 12px 25px rgba(0, 0, 0, 0.15);
+    transform: rotate(5deg);
+    transition: transform 0.4s ease;
+}
+.photo-polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+.photo-polaroid .profile-image {
+    width: 290px;
+    height: 310px;
+    object-fit: cover;
+}
+.photo-polaroid .masking-tape {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 120px;
+    height: 36px;
+    background-color: rgba(226, 214, 184, 0.75);
+}
+
+/* ==========================================
+   SECTION 3: WORKS 개별 스타일 (가독성 높은 서체 조합)
+   ========================================== */
+/* 타이틀 및 코멘트 정렬 */
+.sub-hand-title {
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 18px; /* 손글씨 고딕 계열에 맞춘 가독성 스케일링 */
+    font-weight: 600;
+    color: #555555;
+    margin-left: 35px;
+    display: inline-block;
+    vertical-align: bottom;
+    transform: translateY(-5px);
+    letter-spacing: -0.5px;
+}
+
+.section-title {
+    display: inline-block;
+    position: relative;
+    font-family: "Caveat", cursive;
+    font-size: 64px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.section-title::after {
+    display: none !important;
+}
+
+/* 4개의 행을 담는 큰 박스 중앙 정렬 */
+.works-board-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1320px;
+    height: calc(100vh - 170px);
+    margin: 10px auto 0 auto;
+}
+
+/* 개별 리스트 아이템 행 */
+.work-list-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    box-sizing: border-box;
+}
+.work-list-item:last-child {
+    border-bottom: none;
+}
+
+/* 좌측 썸네일 구조 */
+.work-thumb {
+    width: 220px;
+    height: 128px;
+    background-color: #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+}
+.work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 중앙 설명 텍스트 영역 */
+.work-info-center {
+    flex: 1;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.case-tag {
+    font-family: "Maru Buri", serif; /* 단정한 도서 타입의 모눈종이 감성 서체 */
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+    position: relative;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.case-tag::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: #666;
+}
+
+/* 프로젝트 대제목 크기 및 서체 정비 */
+.work-item-title {
+    font-family: "Pretendard", sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    color: #111111;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+.work-item-title .en-title {
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 8px;
+    color: #555;
+}
+
+.work-year {
+    font-family: "Maru Buri", serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #c49a6c;
+    margin-bottom: 8px;
+}
+
+/* [중요 수정] 가독성을 대폭 높인 부드러운 노트용 서체 적용 */
+.work-item-desc {
+    font-family: "Gowun Dodum", sans-serif; /* 둥글둥글하면서도 정렬이 완벽한 가독성 최고 서체 */
+    font-size: 16px; /* 고딕 계열에 최적화된 편안한 본문 크기 */
+    line-height: 1.6;
+    color: #4f4f4f;
+    letter-spacing: -0.2px;
+}
+
+/* 우측 메타 툴 & 링크 영역 */
+.work-meta-right {
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+    border-left: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.tools-wrapper {
+    margin-bottom: 14px;
+}
+.tools-label {
+    display: block;
+    font-family: "Maru Buri", serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #aa8f66;
+    margin-bottom: 6px;
+}
+
+/* 툴 아이콘 박스 */
+.tools-icons {
+    display: flex;
+    gap: 7px;
+}
+.icon-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #222222;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 링크 텍스트 서체 조율 */
+.view-project-btn {
+    font-family: "Maru Buri", serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #333333;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+.view-project-btn:hover {
+    transform: translateX(4px);
+    color: #000;
+}
+
+/* ==========================================
+   SECTION 4: SKILLS & TOOLS 개별 스타일
+   ========================================== */
+.tools-container {
+    display: flex;
+    gap: 50px;
+    margin-top: 70px;
+}
+.tool-card {
+    flex: 1;
+    background: #faf7f0;
+    border-left: 3px double #cdb4db;
+    padding: 30px;
+    position: relative;
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.06);
+}
+.tool-card .clip {
+    position: absolute;
+    top: -18px;
+    left: 25px;
+    font-size: 26px;
+}
+.tool-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+.skill-list li {
+    font-family: "Pretendard", sans-serif;
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.skill-list .check {
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 20px;
+    color: #81b29a;
+    font-weight: bold;
+}
+
+/* ==========================================
+   SECTION 5: CONTACT 개별 스타일 (세로 반 분할 및 좌측 정중앙 정렬)
+   ========================================== */
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* [중요] 좌측과 우측 콘텐츠의 세로축 높이를 중앙 정렬 */
+    margin-top: 20px;
+    width: 100%;
+    height: calc(100vh - 160px); /* 상단 타이틀 여백을 제외한 나머지 화면 전체 활용 */
+}
+
+/* [수정] 정확히 화면의 왼쪽 '반'을 차지하고, 그 안에서 세로/가로 정중앙 정렬 */
+.contact-left {
+    flex: 1; /* 가로 폭을 정확히 1:1 수준으로 반 분할 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 내부 요소들을 세로 정중앙으로 배치 */
+    align-items: flex-start; /* 글자 시작선은 왼쪽 정렬 유지 */
+    padding-left: 40px; /* 스프링선에서 한 걸음 더 들어가 안정감 확보 */
+    height: 100%; /* 부모 높이를 그대로 받아와 세로 중앙 정렬 기준 수립 */
+}
+
+/* [수정] CONTACT 타이틀 크기 추가 확대 */
+.title-contact {
+    display: inline-block;
+    position: relative;
+    font-family: "Caveat", cursive;
+    font-size: 88px; /* 76px -> 88px로 추가 확대 */
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    margin: 0 0 55px 0;
+    letter-spacing: 1px;
+}
+.title-contact .star {
+    font-family: "Pretendard", sans-serif;
+    font-size: 44px; /* 별 크기 확대 */
+    vertical-align: super;
+    margin-left: 10px;
+    display: inline-block;
+    transform: translateY(-8px);
+}
+.title-contact::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    bottom: -2px;
+    width: 245px; /* 커진 글자에 맞춘 형광펜 너비 */
+    height: 20px;
+    background-color: #f3d4a2;
+    z-index: -1;
+    opacity: 0.75;
+}
+
+/* 연락처 리스트 배열 간격 및 크기 확대 */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px; /* 줄글 라인과의 싱크를 위해 간격 소폭 자극 */
+    margin-bottom: 65px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 28px; /* 아이콘과 텍스트 사이 여백 확대 */
+}
+
+/* 아이콘 크기 추가 확대 */
+.contact-item .icon-box {
+    width: 48px; /* 40px -> 48px로 확대 */
+    height: 48px; /* 40px -> 48px로 확대 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.email-icon::before {
+    content: "✉";
+    font-size: 38px;
+    color: #333;
+}
+.instagram-icon::before {
+    content: "📸";
+    font-size: 34px;
+    color: #333;
+}
+.behance-icon::before {
+    content: "🎨";
+    font-size: 36px;
+    color: #333;
+}
+.phone-icon::before {
+    content: "📞";
+    font-size: 36px;
+    color: #333;
+}
+
+/* [수정] 텍스트 크기 추가 극대화 */
+.contact-item .info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.contact-item .info-box .label {
+    font-family: "Arial", sans-serif;
+    font-size: 18px; /* 소제목 시인성 업그레이드 */
+    font-weight: bold;
+    color: #666666;
+}
+.contact-item .info-box .value {
+    font-family: "Nanum Pen Script", "Pretendard", cursive;
+    font-size: 36px; /* 30px -> 36px로 큼직하게 확대 */
+    color: #222222;
+    letter-spacing: 1px;
+}
+
+/* [수정] 하단 구름 모양 말풍선 볼륨 및 서체 추가 확대 */
+.cloud-comment {
+    position: relative;
+    display: inline-block;
+    padding: 35px 75px; /* 안쪽 여백을 더 넓혀 말풍선 덩어리감 키움 */
+    background: transparent;
+
+    border: 1.5px solid #555555;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.02);
+}
+.cloud-comment p {
+    font-family: "Nanum Pen Script", cursive;
+    font-size: 38px; /* 32px -> 38px로 통 크게 확대 */
+    line-height: 1.5;
+    color: #222222;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 오른쪽 콘텐츠 영역 (화면의 오른쪽 반을 정확히 차지) */
+.contact-right {
+    flex: 1; /* 1:1 분할을 위해 동일하게 1 지정 */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

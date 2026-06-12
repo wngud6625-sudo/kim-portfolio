@@ -5,20 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>KIM PORTFOLIO</title>
         <link rel="stylesheet" href="css/sec.css" />
+
+        <!-- 💡 GSAP 코어 및 플러그인 연동 (ScrollTo, ScrollTrigger) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
         <link
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
             rel="stylesheet"
         />
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
-        <script src="js/mainjs.js" defer></script>
         <link
             href="https://fonts.googleapis.com/css2?family=Maru+Buri:wght@400;600&family=Gowun+Dodum&display=swap"
             rel="stylesheet"
         />
+
+        <script src="js/mainjs.js" defer></script>
     </head>
     <body>
-        <!-- 메뉴 -->
+        <!-- 우측 고정 메뉴 -->
         <div class="book-tabs">
             <a href="#about" class="tab tab1">ABOUT</a>
             <a href="#works" class="tab tab2">PROJECT</a>
@@ -29,12 +36,14 @@
         <!-- 메인 히어로 -->
         <section class="main">
             <img src="images/note2.png" alt="" class="bg" />
-            <div class="paper-btn">
+
+            <div class="paper-btn" id="openNotebookBtn">
                 <img src="images/paper.png" alt="" />
                 <span>OPEN NOTEBOOK</span>
             </div>
+
             <div class="start-note">Let's Start!</div>
-            <!-- 폴라로이드 -->
+
             <div class="polaroid">
                 <video class="polaroid-video" autoplay muted loop playsinline>
                     <source src="images" type="video/mp4" />
@@ -46,13 +55,10 @@
         <!-- SECTION 2: ABOUT -->
         <section id="about" class="note-section">
             <img src="images/note back.png" class="bg" />
-
             <div class="inner">
                 <span class="page-number">PAGE 01</span>
                 <h2 class="title-about">ABOUT</h2>
-
                 <div class="about-container">
-                    <!-- 왼쪽 본문 텍스트 영역 -->
                     <div class="about-text-content">
                         <p class="greeting">안녕하세요.</p>
                         <p class="main-desc">
@@ -60,22 +66,16 @@
                             장면에 감정을 담는 것을 좋아하는<br />
                             영상편집자 <span class="highlight-name">김주형</span>입니다.
                         </p>
-
                         <div class="handwriting-line"></div>
-
                         <p class="sub-desc">
                             모션그래픽과 인포그래픽을 기반으로<br />
                             스토리를 시각적으로 전달합니다.
                         </p>
-
-                        <!-- 좋아하는 작업 섹션 (스티커 느낌) -->
                         <div class="favorite-section">
                             <div class="favorite-title"><span class="curve-arrow">➔</span> 좋아하는 작업 ★</div>
                             <div class="favorite-tags">인포그래픽 / 모션그래픽 / 스토리텔링 / 시네마틱 연출</div>
                         </div>
                     </div>
-
-                    <!-- 오른쪽 폴라로이드 사진 영역 -->
                     <div class="about-photo-content">
                         <div class="photo-polaroid">
                             <div class="masking-tape"></div>
@@ -86,18 +86,13 @@
             </div>
         </section>
 
-        <!-- SECTION 3: WORKS (image_a112c7.jpg 레이아웃 완벽 매칭 + 스크롤 보드 구성) -->
+        <!-- SECTION 3: WORKS -->
         <section id="works" class="note-section2">
             <img src="images/note back.png" class="bg" />
-
             <div class="inner">
-                <!-- 상단 타이틀 영역 -->
                 <span class="page-number">PAGE 03</span>
                 <h2 class="section-title">SELECTED WORKS <span class="sub-hand-title">┌ 주요 작업들 ★</span></h2>
-
-                <!-- 전체를 감싸는 정갈한 사각형 큰 박스 -->
                 <div class="works-board-box">
-                    <!-- CASE 01 -->
                     <div class="work-list-item">
                         <div class="work-thumb">
                             <img src="images/thumb01.jpg" alt="설탕과다사용부담금" />
@@ -123,7 +118,6 @@
                         </div>
                     </div>
 
-                    <!-- CASE 02 -->
                     <div class="work-list-item">
                         <div class="work-thumb">
                             <img src="images/thumb02.jpg" alt="범죄예방 캠페인" />
@@ -147,7 +141,6 @@
                         </div>
                     </div>
 
-                    <!-- CASE 03 -->
                     <div class="work-list-item">
                         <div class="work-thumb">
                             <img src="images/thumb03.jpg" alt="Escape Room" />
@@ -171,7 +164,6 @@
                         </div>
                     </div>
 
-                    <!-- CASE 04 -->
                     <div class="work-list-item">
                         <div class="work-thumb">
                             <img src="images/thumb04.jpg" alt="Forest Memories" />
@@ -198,13 +190,12 @@
             </div>
         </section>
 
-        <!-- SECTION 4: TOOLS & SKILLS (보유 기술 스택) -->
+        <!-- SECTION 4: TOOLS & SKILLS -->
         <section id="tools" class="note-section3">
             <img src="images/note back.png" class="bg" />
             <div class="inner">
                 <span class="page-number">PAGE 03</span>
                 <h2 class="section-title">SKILLS & TOOLS</h2>
-
                 <div class="tools-container">
                     <div class="tool-card">
                         <div class="clip">📎</div>
@@ -215,7 +206,6 @@
                             <li><span class="check">✔</span> DaVinci Resolve (중) - 기본 컬러 그레이딩 및 보정</li>
                         </ul>
                     </div>
-
                     <div class="tool-card">
                         <div class="clip">📎</div>
                         <h3>DESIGN & CREATIVE</h3>
@@ -229,17 +219,14 @@
             </div>
         </section>
 
-        <!-- SECTION 5: CONTACT (연락처 및 아웃트로) -->
+        <!-- SECTION 5: CONTACT -->
         <section id="contact" class="note-section4">
             <img src="images/note back.png" class="bg" />
-
             <div class="inner">
                 <span class="page-number">PAGE 06</span>
-
                 <div class="contact-wrapper">
                     <div class="contact-left">
                         <h2 class="title-contact">CONTACT <span class="star">★</span></h2>
-
                         <div class="contact-list">
                             <div class="contact-item">
                                 <div class="icon-box email-icon"></div>
@@ -248,7 +235,6 @@
                                     <span class="value">juhyeong_edit@gmail.com</span>
                                 </div>
                             </div>
-
                             <div class="contact-item">
                                 <div class="icon-box instagram-icon"></div>
                                 <div class="info-box">
@@ -256,7 +242,6 @@
                                     <span class="value">@juhyeong_edit</span>
                                 </div>
                             </div>
-
                             <div class="contact-item">
                                 <div class="icon-box behance-icon"></div>
                                 <div class="info-box">
@@ -264,7 +249,6 @@
                                     <span class="value">behance.net/juhyeong</span>
                                 </div>
                             </div>
-
                             <div class="contact-item">
                                 <div class="icon-box phone-icon"></div>
                                 <div class="info-box">
@@ -273,12 +257,10 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="cloud-comment">
                             <p>함께 멋진 프로젝트를<br />만들고 싶습니다!</p>
                         </div>
                     </div>
-
                     <div class="contact-right"></div>
                 </div>
             </div>
