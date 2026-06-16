@@ -6,7 +6,7 @@
         <title>KIM PORTFOLIO</title>
         <link rel="stylesheet" href="css/sec.css" />
 
-        <!-- 💡 GSAP 코어 및 플러그인 연동 (ScrollTo, ScrollTrigger) -->
+        <!-- 💡 GSAP 코어 및 플러그인 연동 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -33,17 +33,14 @@
             <a href="#contact" class="tab tab4">CONTACT</a>
         </div>
 
-        <!-- 메인 히어로 -->
+        <!-- 메인 히어로 (수정 안 함) -->
         <section class="main">
             <img src="images/note2.png" alt="" class="bg" />
-
             <div class="paper-btn" id="openNotebookBtn">
                 <img src="images/paper.png" alt="" />
                 <span>OPEN NOTEBOOK</span>
             </div>
-
             <div class="start-note">Let's Start!</div>
-
             <div class="polaroid">
                 <video class="polaroid-video" autoplay muted loop playsinline>
                     <source src="images" type="video/mp4" />
@@ -51,115 +48,102 @@
                 <img src="images/마스킹폴라.png" class="polaroid-frame" />
             </div>
         </section>
-        <!-- SECTION 3: WORKS -->
-        <section id="works" class="note-section2">
+        <!-- SECTION 2: WORKS -->
+       <section id="works" class="note-section2">
             <img src="images/note back.png" class="bg" />
             <div class="inner">
-                <span class="page-number">PAGE 01</span>
+                <span class="page-number">PAGE 02</span>
                 <h2 class="section-title">SELECTED WORKS <span class="sub-hand-title">┌ 주요 작업들 ★</span></h2>
+                
                 <div class="works-board-box">
                     <div class="work-list-item">
-                        <div class="work-thumb">
-                            <img src="images/thumb01.jpg" alt="설탕과다사용부담금" />
-                        </div>
-                        <div class="work-info-center">
-                            <div class="case-tag">CASE 01</div>
-                            <h3 class="work-item-title">설탕과다사용부담금</h3>
-                            <span class="work-year">2026</span>
-                            <p class="work-item-desc">
-                                설탕 과다 섭취 문제를 쉽고 직관적으로 전달하기 위한 인포그래픽 영상
-                            </p>
-                        </div>
-                        <div class="work-meta-right">
-                            <div class="tools-wrapper">
-                                <span class="tools-label">TOOLS</span>
-                                <div class="tools-icons">
-                                    <span class="icon-square">Ae</span>
-                                    <span class="icon-square">Ai</span>
-                                    <span class="icon-square">Ps</span>
+                        <img src="images/thumb01.jpg" alt="설탕과다사용부담금" class="work-thumb-img" />
+                        <div class="work-overlay">
+                            <div class="overlay-content">
+                                <div class="case-tag">CASE 01</div>
+                                <h3 class="work-item-title">설탕과다사용부담금</h3>
+                                <span class="work-year">2026</span>
+                                <p class="work-item-desc">설탕 과다 섭취 문제를 쉽고 직관적으로 전달하기 위한 인포그래픽 영상</p>
+                                <div class="tools-wrapper">
+                                    <div class="tools-icons">
+                                        <span class="icon-square">Ae</span>
+                                        <span class="icon-square">Ai</span>
+                                        <span class="icon-square">Ps</span>
+                                    </div>
                                 </div>
+                                <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                             </div>
-                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                         </div>
                     </div>
 
                     <div class="work-list-item">
-                        <div class="work-thumb">
-                            <img src="images/thumb02.jpg" alt="범죄예방 캠페인" />
-                        </div>
-                        <div class="work-info-center">
-                            <div class="case-tag">CASE 02</div>
-                            <h3 class="work-item-title">범죄예방 캠페인 <span class="en-title">Crime Motion</span></h3>
-                            <span class="work-year">2026</span>
-                            <p class="work-item-desc">범죄의 심각성을 경고하고 예방의 메시지를 전달하는 모션그래픽</p>
-                        </div>
-                        <div class="work-meta-right">
-                            <div class="tools-wrapper">
-                                <span class="tools-label">TOOLS</span>
-                                <div class="tools-icons">
-                                    <span class="icon-square">Ae</span>
-                                    <span class="icon-square">Ai</span>
-                                    <span class="icon-square">Ps</span>
+                        <img src="images/thumb02.jpg" alt="범죄예방 캠페인" class="work-thumb-img" />
+                        <div class="work-overlay">
+                            <div class="overlay-content">
+                                <div class="case-tag">CASE 02</div>
+                                <h3 class="work-item-title">범죄예방 캠페인 <span class="en-title">Crime Motion</span></h3>
+                                <span class="work-year">2026</span>
+                                <p class="work-item-desc">범죄의 심각성을 경고하고 예방의 메시지를 전달하는 모션그래픽</p>
+                                <div class="tools-wrapper">
+                                    <div class="tools-icons">
+                                        <span class="icon-square">Ae</span>
+                                        <span class="icon-square">Ai</span>
+                                        <span class="icon-square">Ps</span>
+                                    </div>
                                 </div>
+                                <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                             </div>
-                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                         </div>
                     </div>
 
                     <div class="work-list-item">
-                        <div class="work-thumb">
-                            <img src="images/thumb03.jpg" alt="Escape Room" />
-                        </div>
-                        <div class="work-info-center">
-                            <div class="case-tag">CASE 01</div>
-                            <h3 class="work-item-title">Escape Room</h3>
-                            <span class="work-year">2026</span>
-                            <p class="work-item-desc">스토리텔링 중심의 모션그래픽으로 몰입감 있는 연출을 구현</p>
-                        </div>
-                        <div class="work-meta-right">
-                            <div class="tools-wrapper">
-                                <span class="tools-label">TOOLS</span>
-                                <div class="tools-icons">
-                                    <span class="icon-square">Ae</span>
-                                    <span class="icon-square">Pr</span>
-                                    <span class="icon-square">Ps</span>
+                        <img src="images/thumb03.jpg" alt="Escape Room" class="work-thumb-img" />
+                        <div class="work-overlay">
+                            <div class="overlay-content">
+                                <div class="case-tag">CASE 03</div>
+                                <h3 class="work-item-title">Escape Room</h3>
+                                <span class="work-year">2026</span>
+                                <p class="work-item-desc">스토리텔링 중심의 모션그래픽으로 몰입감 있는 연출을 구현</p>
+                                <div class="tools-wrapper">
+                                    <div class="tools-icons">
+                                        <span class="icon-square">Ae</span>
+                                        <span class="icon-square">Pr</span>
+                                        <span class="icon-square">Ps</span>
+                                    </div>
                                 </div>
+                                <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                             </div>
-                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                         </div>
                     </div>
 
                     <div class="work-list-item">
-                        <div class="work-thumb">
-                            <img src="images/thumb04.jpg" alt="Forest Memories" />
-                        </div>
-                        <div class="work-info-center">
-                            <div class="case-tag">CASE 04</div>
-                            <h3 class="work-item-title">Forest Memories</h3>
-                            <span class="work-year">2026</span>
-                            <p class="work-item-desc">감정선의 흐름과 미장센을 강조한 스토리텔링 애니메이션</p>
-                        </div>
-                        <div class="work-meta-right">
-                            <div class="tools-wrapper">
-                                <span class="tools-label">TOOLS</span>
-                                <div class="tools-icons">
-                                    <span class="icon-square">Ae</span>
-                                    <span class="icon-square">Pr</span>
-                                    <span class="icon-square">Ai</span>
+                        <img src="images/thumb04.jpg" alt="Forest Memories" class="work-thumb-img" />
+                        <div class="work-overlay">
+                            <div class="overlay-content">
+                                <div class="case-tag">CASE 04</div>
+                                <h3 class="work-item-title">Forest Memories</h3>
+                                <span class="work-year">2026</span>
+                                <p class="work-item-desc">감정선의 흐름과 미장센을 강조한 스토리텔링 애니메이션</p>
+                                <div class="tools-wrapper">
+                                    <div class="tools-icons">
+                                        <span class="icon-square">Ae</span>
+                                        <span class="icon-square">Pr</span>
+                                        <span class="icon-square">Ai</span>
+                                    </div>
                                 </div>
+                                <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                             </div>
-                            <a href="#" class="view-project-btn">VIEW PROJECT ➔</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: ABOUT -->
+        <!-- SECTION 1: ABOUT (순서 재배치) -->
         <section id="about" class="note-section">
             <img src="images/note back.png" class="bg" />
             <div class="inner">
-                <span class="page-number">PAGE 02</span>
+                <span class="page-number">PAGE 01</span>
                 <h2 class="title-about">ABOUT</h2>
                 <div class="about-container">
                     <div class="about-text-content">
@@ -191,75 +175,74 @@
                         </div>
                     </div>
                     <div class="about-photo-content">
-                        <div class="photo-polaroid">
-                            <div class="masking-tape"></div>
-                            <img src="profile.jpg" alt="김주형 프로필 사진" class="profile-image" />
+                        <img src="images/폴라로이드2 중앙.png" alt="내 이미지" class="about-custom-image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TOOLS & SKILLS (구조 개선) -->
+        <section id="tools" class="tools-section">
+            <img src="images/note back.png" class="bg" />
+            <div class="inner">
+                <span class="page-number">PAGE 03</span>
+                <h2 class="tools-title">Tools</h2>
+
+                <!-- 카드를 정렬해 줄 래퍼 추가 -->
+                <div class="tools-grid">
+                    <!-- AE -->
+                    <div class="tool-card ae">
+                        <img src="images/ae-note.png" alt="" />
+                        <div class="tool-content">
+                            <img src="images/ae-icon.png" class="tool-icon" />
+                            <p>After Effects</p>
+                        </div>
+                    </div>
+
+                    <!-- PR -->
+                    <div class="tool-card pr">
+                        <img src="images/pr-note.png" alt="" />
+                        <div class="tool-content">
+                            <img src="images/pr-icon.png" class="tool-icon" />
+                            <p>Premiere Pro</p>
+                        </div>
+                    </div>
+
+                    <!-- AI -->
+                    <div class="tool-card ai">
+                        <img src="images/ai-note.png" alt="" />
+                        <div class="tool-content">
+                            <img src="images/ai-icon.png" class="tool-icon" />
+                            <p>Illustrator</p>
+                        </div>
+                    </div>
+
+                    <!-- PS -->
+                    <div class="tool-card ps">
+                        <img src="images/ps-note.png" alt="" />
+                        <div class="tool-content">
+                            <img src="images/ps-icon.png" class="tool-icon" />
+                            <p>Photoshop</p>
+                        </div>
+                    </div>
+
+                    <!-- Blender -->
+                    <div class="tool-card blender">
+                        <img src="images/blender-note.png" alt="" />
+                        <div class="tool-content">
+                            <img src="images/blender-icon.png" class="tool-icon" />
+                            <p>Blender</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: TOOLS & SKILLS -->
-        <section id="tools" class="tools-section">
-            <img src="images/note back.png" class="bg" />
-
-            <div class="tools-wrap">
-                <span class="page-number">PAGE 03</span>
-
-                <h2 class="tools-title">Tools</h2>
-
-                <!-- AE -->
-                <div class="tool-card ae">
-                    <img src="images/ae-note.png" alt="" />
-                    <div class="tool-content">
-                        <img src="images/ae-icon.png" class="tool-icon" />
-                        <p>After Effects</p>
-                    </div>
-                </div>
-
-                <!-- PR -->
-                <div class="tool-card pr">
-                    <img src="images/pr-note.png" alt="" />
-                    <div class="tool-content">
-                        <img src="images/pr-icon.png" class="tool-icon" />
-                        <p>Premiere Pro</p>
-                    </div>
-                </div>
-
-                <!-- AI -->
-                <div class="tool-card ai">
-                    <img src="images/ai-note.png" alt="" />
-                    <div class="tool-content">
-                        <img src="images/ai-icon.png" class="tool-icon" />
-                        <p>Illustrator</p>
-                    </div>
-                </div>
-
-                <!-- PS -->
-                <div class="tool-card ps">
-                    <img src="images/ps-note.png" alt="" />
-                    <div class="tool-content">
-                        <img src="images/ps-icon.png" class="tool-icon" />
-                        <p>Photoshop</p>
-                    </div>
-                </div>
-
-                <!-- Blender -->
-                <div class="tool-card blender">
-                    <img src="images/blender-note.png" alt="" />
-                    <div class="tool-content">
-                        <img src="images/blender-icon.png" class="tool-icon" />
-                        <p>Blender</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION 5: CONTACT -->
+        <!-- SECTION 4: CONTACT -->
         <section id="contact" class="note-section4">
             <img src="images/note back.png" class="bg" />
             <div class="inner">
-                <span class="page-number">PAGE 06</span>
+                <span class="page-number">PAGE 04</span>
                 <div class="contact-wrapper">
                     <div class="contact-left">
                         <h2 class="title-contact">CONTACT <span class="star">★</span></h2>
