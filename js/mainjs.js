@@ -64,3 +64,86 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+// 모달
+// =========================
+// 🎯 WORK MODAL SYSTEM
+// =========================
+
+// 요소 선택
+const modal = document.getElementById("workModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalVideo = document.getElementById("modalVideo");
+const modalClose = document.getElementById("modalClose");
+
+// WORK 아이템 전체 선택
+const workItems = document.querySelectorAll(".work-list-item");
+
+// 열기
+workItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        const title = item.dataset.title || item.querySelector(".work-item-title")?.innerText;
+        const desc = item.dataset.desc || item.querySelector(".work-item-desc")?.innerText;
+        const video = item.dataset.video || "";
+
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+
+        // 영상이 있을 때만
+        if (modalVideo && video) {
+            modalVideo.src = video;
+        }
+
+        modal.style.display = "flex";
+
+        gsap.fromTo(
+            ".modal-content",
+            {
+                scale: 0.8,
+                opacity: 0,
+                y: 40,
+            },
+            {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power3.out",
+            }
+        );
+    });
+});
+
+// 닫기 함수
+function closeModal() {
+    gsap.to(".modal-content", {
+        scale: 0.9,
+        opacity: 0,
+        y: 30,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+            modal.style.display = "none";
+            if (modalVideo) modalVideo.src = "";
+        },
+    });
+}
+
+// X 버튼
+if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+}
+
+// 바깥 클릭 시 닫기
+if (modal) {
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+// ESC 닫기
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+});
