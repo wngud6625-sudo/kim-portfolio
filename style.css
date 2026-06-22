@@ -1,6 +1,6 @@
-/* ========================= */
-/* RESET */
-/* ========================= */
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -8,400 +8,339 @@
     box-sizing:border-box;
 }
 
-body{
-
-    width:100vw;
-    height:100vh;
-
-    overflow:hidden;
-
-    font-family:'Patrick Hand', cursive;
-
-    background:#f5f1ea;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ========================= */
-/* NOTEBOOK BACKGROUND */
-/* ========================= */
+body{
+    background:#050505;
+    color:#fff;
+    font-family:'Pretendard',sans-serif;
+    overflow-x:hidden;
+}
 
-.notebook{
+/* =========================
+   HEADER
+========================= */
 
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    z-index:1000;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,0)
+    );
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    color:#ff3b30;
+}
+
+.nav{
+    display:flex;
+    gap:40px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:.95rem;
+    opacity:.8;
+}
+
+.nav a:hover{
+    opacity:1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    height:100vh;
+}
+
+.heroSwiper{
+    height:100%;
+}
+
+.hero-slide{
     position:relative;
 
-    width:100vw;
     height:100vh;
 
-    background-image:url("notebook-bg.png");
-    background-size:cover;
-    background-position:center;
+    display:flex;
+    align-items:center;
+
+    padding:0 80px;
+
+    overflow:hidden;
 }
 
-/* ========================= */
-/* PAGE NUMBER */
-/* ========================= */
-
-.page-label{
-
+.hero-slide img{
     position:absolute;
 
-    top:55px;
-    left:95px;
+    inset:0;
 
-    font-size:18px;
+    width:100%;
+    height:100%;
 
-    color:#222;
+    object-fit:cover;
 
-    font-family:Arial, sans-serif;
-
-    letter-spacing:1px;
+    z-index:-2;
 }
 
-/* ========================= */
-/* TOP LINE */
-/* ========================= */
-
-.top-line{
+.hero-slide::after{
+    content:"";
 
     position:absolute;
+    inset:0;
 
-    top:90px;
-    left:95px;
-
-    width:1450px;
-    height:1px;
-
-    background:#d7d2ca;
-}
-
-/* ========================= */
-/* TITLE */
-/* ========================= */
-
-.title-wrap{
-
-    position:absolute;
-
-    left:210px;
-    top:150px;
-}
-
-.title{
-
-    font-family:'Permanent Marker', cursive;
-
-    color:#000;
-
-    line-height:.9;
-
-    transform:rotate(-4deg);
-}
-
-.kim{
-
-    font-size:115px;
-}
-
-.notebook-title{
-
-    font-size:125px;
-
-    margin-top:10px;
-}
-
-.marker{
-
-    position:absolute;
-
-    width:420px;
-    height:22px;
-
-    background:#efd67d;
-
-    left:0;
-    top:190px;
-
-    transform:rotate(-8deg);
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,.95) 20%,
+        rgba(0,0,0,.55) 55%,
+        rgba(0,0,0,.2) 100%
+    );
 
     z-index:-1;
 }
 
-.volume{
-
-    position:absolute;
-
-    left:230px;
-    top:290px;
-
-    color:#d18b29;
-
-    font-size:42px;
+.hero-content{
+    max-width:700px;
 }
 
-/* ========================= */
-/* PROFILE */
-/* ========================= */
-
-.profile{
-
-    position:absolute;
-
-    left:210px;
-    top:520px;
-}
-
-.profile h2{
-
-    font-size:62px;
-
-    font-weight:normal;
-}
-
-.profile p{
-
-    font-size:58px;
-
-    margin-top:10px;
-}
-
-/* ========================= */
-/* STAMP */
-/* ========================= */
-
-.stamp{
-
-    position:absolute;
-
-    right:210px;
-    top:80px;
-
-    width:210px;
-    height:210px;
-
-    border:5px solid #a25d4f;
-
-    border-radius:50%;
-
-    color:#a25d4f;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    transform:rotate(-18deg);
-
-    opacity:.8;
-}
-
-.stamp span{
-
-    font-size:22px;
-
+.hero-content span{
+    color:#ff3b30;
     letter-spacing:2px;
+    font-size:.9rem;
 }
 
-.stamp strong{
-
-    font-size:56px;
-
-    margin:8px 0;
+.hero-content h1{
+    font-size:6rem;
+    line-height:1;
+    margin:20px 0;
 }
 
-.stamp small{
-
-    font-size:18px;
+.hero-content p{
+    font-size:1.1rem;
+    color:#ccc;
+    max-width:550px;
 }
 
-/* ========================= */
-/* MEMO */
-/* ========================= */
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+}
 
-.memo{
+.btn-primary,
+.btn-secondary{
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
 
-    position:absolute;
+.btn-primary{
+    background:#ff3b30;
+    color:white;
+}
 
-    right:250px;
-    top:360px;
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.3);
+    color:white;
+}
 
-    width:360px;
-    height:520px;
+/* =========================
+   CONTENT ROW
+========================= */
 
-    background:#f8f3ec;
+.content-row{
+    padding:50px 60px;
+}
+
+.content-row h2{
+    margin-bottom:20px;
+    font-size:1.8rem;
+}
+
+/* =========================
+   SWIPER
+========================= */
+
+.projectSwiper{
+    overflow:visible;
+}
+
+.projectSwiper .swiper-slide{
+    width:320px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    cursor:pointer;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+
+    object-fit:cover;
 
     border-radius:12px;
 
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
-
-    padding:50px;
+    transition:.35s;
 }
 
-.tape{
-
-    position:absolute;
-
-    width:140px;
-    height:35px;
-
-    background:#d7bf96;
-
-    top:-15px;
-    left:110px;
-
-    transform:rotate(-7deg);
+.card:hover img{
+    transform:scale(1.08);
 }
 
-.memo h3{
+.card h3{
+    margin-top:12px;
+    font-size:1rem;
+}
 
-    text-align:center;
+.card span{
+    color:#9d9d9d;
+    font-size:.85rem;
+}
 
-    font-size:58px;
+/* =========================
+   CTA
+========================= */
 
+.cta{
+    padding:80px 60px;
+}
+
+.cta-content{
+    background:
+    linear-gradient(
+        135deg,
+        #111,
+        #1b1b1b
+    );
+
+    border-radius:20px;
+
+    padding:60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cta h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#aaa;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    padding:80px 60px;
+}
+
+.about h2{
+    font-size:2.5rem;
     margin-bottom:20px;
 }
 
-.memo-line{
-
-    width:100%;
-    height:1px;
-
-    background:#999;
-
-    margin-bottom:30px;
+.about p{
+    color:#bbb;
+    line-height:1.8;
+    max-width:700px;
 }
 
-.memo ul{
+/* =========================
+   CONTACT
+========================= */
 
-    list-style:none;
+.contact{
+    padding:80px 60px;
 }
 
-.memo li{
-
-    font-size:40px;
-
-    margin-bottom:28px;
+.contact h2{
+    margin-bottom:20px;
 }
 
-/* ========================= */
-/* POLAROID */
-/* ========================= */
-
-.polaroid{
-
-    position:absolute;
-
-    left:280px;
-    bottom:70px;
-
-    width:330px;
-
-    background:white;
-
-    padding:15px 15px 55px;
-
-    box-shadow:
-    0 15px 25px rgba(0,0,0,.15);
-
-    transform:rotate(-7deg);
+.contact p{
+    margin-bottom:10px;
+    color:#bbb;
 }
 
-.polaroid img{
+/* =========================
+   FOOTER
+========================= */
 
-    width:100%;
-
-    display:block;
-}
-
-.polaroid p{
-
+footer{
+    padding:40px;
     text-align:center;
-
-    font-size:34px;
-
-    margin-top:15px;
+    color:#777;
 }
 
-.polaroid-tape{
+/* =========================
+   MOBILE
+========================= */
 
-    position:absolute;
+@media(max-width:768px){
 
-    top:-15px;
-    left:90px;
+    .header{
+        padding:0 20px;
+    }
 
-    width:170px;
-    height:35px;
+    .nav{
+        display:none;
+    }
 
-    background:#d7bf96;
+    .hero-slide{
+        padding:0 20px;
+    }
 
-    transform:rotate(8deg);
-}
+    .hero-content h1{
+        font-size:3.5rem;
+    }
 
-/* ========================= */
-/* STAR */
-/* ========================= */
+    .content-row,
+    .cta,
+    .about,
+    .contact{
+        padding-left:20px;
+        padding-right:20px;
+    }
 
-.star{
+    .cta-content{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
 
-    position:absolute;
-
-    left:1020px;
-    top:620px;
-
-    font-size:70px;
-
-    transform:rotate(-15deg);
-}
-
-/* ========================= */
-/* START TEXT */
-/* ========================= */
-
-.start-text{
-
-    position:absolute;
-
-    left:1080px;
-    bottom:120px;
-
-    font-size:52px;
-
-    transform:rotate(-8deg);
-}
-
-/* ========================= */
-/* BUTTON */
-/* ========================= */
-
-.open-btn{
-
-    position:absolute;
-
-    right:180px;
-    bottom:90px;
-
-    width:320px;
-    height:90px;
-
-    border:none;
-
-    border-radius:45px;
-
-    background:#000;
-
-    color:#fff;
-
-    font-size:34px;
-
-    font-family:'Patrick Hand', cursive;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.open-btn:hover{
-
-    transform:translateY(-5px);
 }

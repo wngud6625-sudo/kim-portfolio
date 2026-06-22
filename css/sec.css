@@ -312,16 +312,26 @@ section {
     color: #3d3d3d;
 }
 .favorite-section {
-    margin-top: 55px;
+    margin-top:55px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
 }
 .favorite-title {
-    font-family: "Nanum Pen Script", cursive;
-    font-size: 26px;
-    color: #1a1a1a;
-    margin-bottom: 12px;
-    display: flex;
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #555555;
+
+    margin-bottom: 0px;
+
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+
+    animation: doodleRotate 0.8s steps(1) infinite;
+    transform-origin: center;
 }
 .favorite-section .curve-arrow {
     transform: rotate(-30deg);
@@ -337,12 +347,14 @@ section {
     font-weight: 500;
     background-color: rgba(255, 255, 255, 0.4);
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
+    margin-left: 15px;
 }
 .about-photo-content {
     flex: 0.8;
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(-80px) rotate(5deg);
 }
 
 /* ==========================================
@@ -390,15 +402,26 @@ section {
     box-shadow: 2px 5px 12px rgba(0, 0, 0, 0.08);
     cursor: pointer;
 
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.4s ease;
+    transition:
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.4s ease;
 }
 
 /* 스크랩북 느낌 배치 */
-.work-list-item:nth-child(1) { transform: rotate(-2deg); }
-.work-list-item:nth-child(2) { transform: rotate(1.5deg); margin-top: 15px; }
-.work-list-item:nth-child(3) { transform: rotate(1deg); }
-.work-list-item:nth-child(4) { transform: rotate(-2deg); margin-top: -10px; }
+.work-list-item:nth-child(1) {
+    transform: rotate(-2deg);
+}
+.work-list-item:nth-child(2) {
+    transform: rotate(1.5deg);
+    margin-top: 15px;
+}
+.work-list-item:nth-child(3) {
+    transform: rotate(1deg);
+}
+.work-list-item:nth-child(4) {
+    transform: rotate(-2deg);
+    margin-top: -10px;
+}
 
 /* hover */
 .work-list-item:hover {
@@ -424,7 +447,7 @@ section {
 
     opacity: 0.95;
 
-    filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.15));
+    filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.15));
 }
 
 /* 짝수 리듬 */
@@ -573,7 +596,9 @@ section {
     text-transform: uppercase;
     display: inline-block;
 
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
     z-index: 1;
 }
 
@@ -591,7 +616,9 @@ section {
     z-index: -1;
     transform: rotate(-2deg);
 
-    transition: height 0.2s ease, transform 0.2s ease;
+    transition:
+        height 0.2s ease,
+        transform 0.2s ease;
 }
 
 .view-project-btn:hover {
@@ -770,11 +797,21 @@ section {
 ========================================== */
 
 @keyframes startDoodle {
-    0% { transform: rotate(-6deg); }
-    25% { transform: rotate(-2deg); }
-    50% { transform: rotate(-9deg); }
-    75% { transform: rotate(-4deg); }
-    100% { transform: rotate(-6deg); }
+    0% {
+        transform: rotate(-6deg);
+    }
+    25% {
+        transform: rotate(-2deg);
+    }
+    50% {
+        transform: rotate(-9deg);
+    }
+    75% {
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: rotate(-6deg);
+    }
 }
 
 /* WORKS 손글씨 텍스트 */

@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Juhyeong | 이야기 스케치북</title>
+
+        <!-- 서정적인 고운돋움 폰트와 본문용 폰트 -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Swiper.js CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <style>
+            /* ================= 지브리 감성 컬러 & 디자인 변수 ================= */
+            :root {
+                --bg-paper: #f9f6f0; /* 따뜻한 수채화 종이 질감 베이스 */
+                --text-forest: #3e4a3d; /* 짙은 숲의 녹색 */
+                --text-brown: #5c4a3d; /* 나무껍질 갈색 */
+                --accent-green: #7e9b76; /* 부드러운 잎사귀 색 */
+                --accent-yellow: #e6c280; /* 따뜻한 햇살 색 */
+                /* 손그림 느낌을 내는 불규칙한 테두리 (CSS Trick) */
+                --sketch-border: 255px 15px 225px 15px/15px 225px 15px 255px;
+            }
+            html{
+                scroll-behavior: smooth;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Noto Sans KR", sans-serif;
+                background-color: var(--bg-paper);
+                /* 은은한 종이 질감 패턴 (투명한 노이즈) */
+                background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+                color: var(--text-forest);
+                line-height: 1.7;
+                overflow-x: hidden;
+            }
+
+            h1,
+            h2,
+            h3,
+            .point-font {
+                font-family: "Gowun Dodum", sans-serif;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            ul {
+                list-style: none;
+            }
+
+            /* ================= 01. NAVIGATION ================= */
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.5rem 5%;
+                transition: all 0.4s ease;
+                z-index: 1000;
+            }
+
+            header.scrolled {
+                background-color: rgba(249, 246, 240, 0.95);
+                box-shadow: 0 4px 20px rgba(92, 74, 61, 0.08);
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: var(--text-forest);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .logo::after {
+                content: "🌱";
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2.5rem;
+                margin-right: 100px;
+            }
+            .nav-links li a {
+                font-size: 1rem;
+                font-family: "Gowun Dodum", sans-serif;
+                font-weight: bold;
+                color: var(--text-brown);
+                transition: color 0.3s;
+            }
+            .nav-links li a:hover {
+                color: var(--accent-green);
+            }
+
+            /* ================= 02. HERO SECTION ================= */
+            .hero {
+                min-height: 100vh;
+                /* 배경 이미지 설정 */
+                background: url("https://images.unsplash.com/photo-1505245208761-ba3ce85b1cfa?auto=format&fit=crop&q=80&w=2000")
+                    no-repeat center center/cover;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 6rem 10% 2rem 10%;
+                position: relative;
+                gap: 4rem;
+            }
+
+            /* 캔버스 엣지 효과 (글자와 영상을 돋보이게 하는 반투명 오버레이) */
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to right, rgba(249, 246, 240, 0.9) 0%, rgba(249, 246, 240, 0.6) 100%);
+                pointer-events: none;
+                display: none;
+            }
+
+            /* 왼쪽: 텍스트 영역 */
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                flex: 1;
+                max-width: 550px;
+            }
+            .hero h1 {
+                font-size: 3.8rem;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+                color: #2c3a2b;
+                text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            }
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
+                color: #4a5d48;
+                background: rgba(255, 255, 255, 0.6);
+                display: inline-block;
+                padding: 10px 20px;
+                border-radius: var(--sketch-border);
+            }
+
+            .btn {
+                padding: 0.8rem 2rem;
+                font-family: "Gowun Dodum", sans-serif;
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s;
+                border-radius: var(--sketch-border);
+                border: 2px solid var(--text-forest);
+            }
+            .btn.solid {
+                background-color: var(--text-forest);
+                color: var(--bg-paper);
+            }
+            .btn.solid:hover {
+                background-color: var(--accent-green);
+                border-color: var(--accent-green);
+            }
+
+            /* 오른쪽: 쇼릴(동영상) 영역 */
+            .hero-visual {
+                position: relative;
+                z-index: 2;
+                flex: 1.2;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            /* 스케치북 / 폴라로이드 스타일의 액자 프레임 */
+            .showreel-frame {
+                background: #fff;
+                padding: 15px 15px 40px 15px;
+                border-radius: 3px;
+                box-shadow: 5px 15px 30px rgba(92, 74, 61, 0.15);
+                transform: rotate(2deg); /* 아주 살짝 기울여서 손맛 추가 */
+                transition: transform 0.4s ease;
+                width: 100%;
+                max-width: 650px;
+            }
+            .showreel-frame:hover {
+                transform: rotate(0deg) translateY(-5px);
+            }
+
+            .showreel-frame video {
+                width: 100%;
+                aspect-ratio: 16 / 9; /* 영상 기본 비율 */
+                object-fit: cover;
+                border-radius: 2px;
+                /* 영상에도 약간의 따뜻한 아날로그 필터 적용 (원치 않으시면 제거하세요) */
+                filter: sepia(10%) contrast(95%);
+            }
+
+            .showreel-caption {
+                text-align: center;
+                font-family: "Gowun Dodum", sans-serif;
+                color: var(--text-brown);
+                margin-top: 15px;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            .showreel-caption::before,
+            .showreel-caption::after {
+                content: " ✨ ";
+                font-size: 0.9rem;
+                color: var(--accent-yellow);
+            }
+
+            /* ================= 03. WORKS ================= */
+            section {
+                padding: 8rem 10%;
+                position: relative;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 4rem;
+                text-align: center;
+                color: var(--text-forest);
+            }
+            .section-title::before,
+            .section-title::after {
+                content: " ~ 🍃 ~ ";
+                font-size: 1.5rem;
+                color: var(--accent-green);
+                opacity: 0.7;
+            }
+
+            .works-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 3rem;
+            }
+
+            .work-card {
+                background: #fff;
+                padding: 15px 15px 25px 15px;
+                box-shadow: 3px 5px 15px rgba(92, 74, 61, 0.1);
+                border-radius: 3px 3px 3px 3px / 5px 5px 3px 3px;
+                cursor: pointer;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                position: relative; /* 추가된 속성: ::after 문구를 위해 필요 */
+            }
+            .work-card:nth-child(even) {
+                transform: rotate(2deg);
+            }
+            .work-card:nth-child(odd) {
+                transform: rotate(-1.5deg);
+            }
+            .work-card:hover {
+                transform: translateY(-10px) rotate(0deg) scale(1.05);
+                z-index: 10;
+            }
+
+            /* 마우스를 올렸을 때 '영상 보기' 안내 문구 추가 */
+            .work-card::after {
+                content: "▶ 영상 보기";
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(62, 74, 61, 0.8);
+                color: #fff;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            .work-card:hover::after {
+                opacity: 1;
+            }
+
+            .work-img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                filter: sepia(20%) contrast(90%);
+            }
+
+            .work-card h3 {
+                font-size: 1.4rem;
+                color: var(--text-forest);
+                margin-bottom: 0.2rem;
+                text-align: center;
+            }
+            .work-card p {
+                font-size: 0.9rem;
+                color: var(--text-brown);
+                text-align: center;
+            }
+
+            /* ================= 모달창(팝업) 스타일 추가 ================= */
+            .modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(30, 36, 30, 0.85);
+                backdrop-filter: blur(5px);
+                z-index: 2000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+            }
+            .modal-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .modal-content {
+                background-color: var(--bg-paper);
+                background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+                width: 90%;
+                max-width: 1000px;
+                max-height: 90vh;
+                overflow-y: auto;
+                border-radius: var(--sketch-border);
+                border: 2px solid var(--text-forest);
+                padding: 40px;
+                position: relative;
+                display: flex;
+                gap: 30px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+                transform: translateY(30px) scale(0.95);
+                transition: all 0.4s ease;
+            }
+            .modal-overlay.active .modal-content {
+                transform: translateY(0) scale(1);
+            }
+
+            .modal-close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                font-size: 2rem;
+                color: var(--text-brown);
+                cursor: pointer;
+                transition: color 0.3s;
+                line-height: 1;
+            }
+            .modal-close:hover {
+                color: var(--accent-green);
+            }
+
+            .modal-video-box {
+                flex: 1.5;
+                background: #000;
+                border-radius: 5px;
+                overflow: hidden;
+                aspect-ratio: 16/9;
+            }
+            .modal-video-box video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .modal-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .modal-info h2 {
+                font-size: 2rem;
+                color: var(--text-forest);
+                margin-bottom: 10px;
+            }
+            .modal-info .modal-category {
+                font-size: 0.95rem;
+                color: var(--accent-green);
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+            .modal-info p {
+                font-size: 1.05rem;
+                color: var(--text-brown);
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            /* ================= 04. FEATURED (스와이퍼 적용) ================= */
+            .featured-section {
+                padding: 5rem 10%;
+                background: linear-gradient(to bottom, transparent, rgba(126, 155, 118, 0.1), transparent);
+            }
+
+            .storySwiper {
+                width: 100%;
+                padding-bottom: 50px;
+            }
+
+            .storybook {
+                background: #fff;
+                border-radius: var(--sketch-border);
+                box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.05);
+                display: flex;
+                overflow: hidden;
+                border: 1px solid #e0d8c3;
+            }
+
+            .story-img {
+                flex: 1;
+                min-height: 400px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+            }
+
+            .story-text {
+                flex: 1;
+                padding: 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+            }
+
+            .story-text h2 {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                color: var(--text-forest);
+            }
+            .story-text h4 {
+                font-size: 1.1rem;
+                color: var(--accent-green);
+                margin-bottom: 2rem;
+            }
+            .story-text p {
+                font-size: 1.05rem;
+                line-height: 1.8;
+                color: var(--text-brown);
+                margin-bottom: 2rem;
+            }
+
+            .story-btn {
+                align-self: flex-start;
+                font-family: "Gowun Dodum", sans-serif;
+                color: var(--text-forest);
+                border-bottom: 2px dashed var(--accent-green);
+                padding-bottom: 5px;
+                transition: color 0.3s;
+                font-weight: bold;
+            }
+            .story-btn:hover {
+                color: var(--accent-green);
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: var(--text-forest) !important;
+                opacity: 0.7;
+                transition: opacity 0.3s;
+            }
+            .swiper-button-next:hover,
+            .swiper-button-prev:hover {
+                opacity: 1;
+            }
+
+            .swiper-pagination-bullet {
+                background-color: var(--text-brown) !important;
+                width: 10px;
+                height: 10px;
+            }
+            .swiper-pagination-bullet-active {
+                background-color: var(--accent-green) !important;
+            }
+
+            /* ================= 05. ABOUT ================= */
+            .about-container {
+                display: flex;
+                gap: 4rem;
+                align-items: center;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .about-drawing {
+                flex: 1;
+                height: 450px;
+                background: url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800")
+                    no-repeat center/cover;
+                border-radius: var(--sketch-border);
+                border: 3px solid #e0d8c3;
+                filter: sepia(50%) grayscale(40%);
+            }
+
+            .about-text h2 {
+                font-size: 2.2rem;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+                color: var(--text-forest);
+            }
+            .about-text p {
+                font-size: 1.1rem;
+                color: var(--text-brown);
+                margin-bottom: 2.5rem;
+            }
+
+            .skill-tag {
+                display: inline-block;
+                padding: 5px 15px;
+                margin: 0 5px 10px 0;
+                font-family: "Gowun Dodum", sans-serif;
+                background: rgba(230, 194, 128, 0.2);
+                border: 1px dashed var(--accent-yellow);
+                border-radius: 20px;
+                color: var(--text-brown);
+            }
+
+            /* ================= 06. FOOTER ================= */
+            footer {
+                margin-top: 5rem;
+                background-color: var(--text-forest);
+                color: var(--bg-paper);
+                padding: 4rem 10%;
+                text-align: center;
+                background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+            }
+
+            .footer-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            .footer-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                color: var(--accent-yellow);
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                gap: 3rem;
+                margin-bottom: 3rem;
+            }
+            .footer-links a {
+                font-family: "Gowun Dodum", sans-serif;
+                font-size: 1.2rem;
+                transition: color 0.3s;
+            }
+            .footer-links a:hover {
+                color: var(--accent-yellow);
+            }
+
+            /* 반응형 (모바일 & 태블릿 레이아웃 변경) */
+            @media (max-width: 992px) {
+                .hero {
+                    flex-direction: column;
+                    text-align: center;
+                    padding-top: 8rem;
+                    gap: 3rem;
+                }
+                .hero-content {
+                    max-width: 100%;
+                }
+                .hero-visual {
+                    justify-content: center;
+                    width: 100%;
+                }
+                .showreel-frame {
+                    transform: rotate(0deg);
+                }
+                /* 추가: 모바일 환경 모달창 디자인 조정 */
+                .modal-content {
+                    flex-direction: column;
+                    padding: 30px 20px;
+                }
+                .modal-close {
+                    top: 10px;
+                    right: 20px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+                .hero h1 {
+                    font-size: 3rem;
+                }
+                .storybook {
+                    flex-direction: column;
+                }
+                .story-img {
+                    min-height: 250px;
+                }
+                .story-text {
+                    padding: 2rem;
+                }
+                .about-container {
+                    flex-direction: column;
+                }
+                .about-drawing {
+                    width: 100%;
+                    height: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!-- 01. NAVIGATION -->
+        <header id="header">
+            <div class="logo point-font">Juhyeong</div>
+            <ul class="nav-links">
+                <li><a href="#works">작업실</a></li>
+                <li><a href="#featured">주요기록</a></li>
+                <li><a href="#about">나의 이야기</a></li>
+                <li><a href="#contact">우체통</a></li>
+            </ul>
+        </header>
+
+        <!-- 02. HERO (텍스트 + 쇼릴 비디오 레이아웃 분할) -->
+        <section class="hero">
+            
+            <!-- 좌측: 소개 텍스트 -->
+           <div class="hero-content">
+    <h1 class="point-font">모든 움직임에는<br>이유가 있어야 합니다.</h1>
+    <p>데이터와 기획을 정교한 시각 언어로 설계합니다.<br>당신의 메시지가 기억에 남는 경험이 되는 순간을 만듭니다.</p>
+    <button class="btn solid hover-target" onclick="location.href='#works'">프로젝트 살펴보기</button>
+</div>
+
+            <!-- 우측: 쇼릴 영상 프레임 -->
+            <div class="hero-visual">
+                <div class="showreel-frame">
+                    <!-- autoplay, loop, muted 속성으로 접속 시 소리 없이 자동 재생되도록 설정 -->
+                    <video
+                        src="https://cdn.pixabay.com/video/2021/08/04/83863-584737217_large.mp4"
+                        poster="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=800"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                    ></video>
+                    <div class="showreel-caption point-font">Showreel 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. WORKS PREVIEW (데이터 속성 추가) -->
+        <section id="works">
+            <h2 class="section-title point-font">서랍 속 작업물</h2>
+            <div class="works-grid">
+                <!-- 프로젝트 1 (data-* 속성에 모달창에 띄울 정보 입력) -->
+                <div
+                    class="work-card"
+                    data-title="바람이 머무는 곳"
+                    data-category="배경 일러스트레이션"
+                    data-desc="바람의 흔적을 따라 움직이는 들판을 표현한 작업입니다. 스케치부터 채색, 그리고 애프터이펙트를 활용한 미세한 모션까지 모든 과정을 1인 제작하였습니다."
+                    data-video="https://cdn.pixabay.com/video/2020/05/13/38891-419525263_large.mp4"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=800"
+                        class="work-img"
+                    />
+                    <h3 class="point-font">바람이 머무는 곳</h3>
+                    <p>배경 일러스트레이션</p>
+                </div>
+
+                <!-- 프로젝트 2 -->
+                <div
+                    class="work-card"
+                    data-title="구름 너머의 마을"
+                    data-category="모션 그래픽스"
+                    data-desc="어릴 적 상상하던 하늘 위 마을을 구현한 모션 그래픽 프로젝트입니다. 몽환적인 색감과 부드러운 카메라 워킹에 신경 썼습니다."
+                    data-video="https://cdn.pixabay.com/video/2019/04/16/22754-330419355_large.mp4"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800"
+                        class="work-img"
+                    />
+                    <h3 class="point-font">구름 너머의 마을</h3>
+                    <p>모션 그래픽스</p>
+                </div>
+
+                <!-- 프로젝트 3 -->
+                <div
+                    class="work-card"
+                    data-title="작은 숲의 요정"
+                    data-category="캐릭터 애니메이션"
+                    data-desc="지브리 특유의 포근한 요정 캐릭터를 오마주하여 짧은 루핑 애니메이션을 제작했습니다. 프레임 바이 프레임 기법을 일부 사용했습니다."
+                    data-video="https://cdn.pixabay.com/video/2021/08/04/83863-584737217_large.mp4"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1490682143684-14369e18dce8?auto=format&fit=crop&q=80&w=800"
+                        class="work-img"
+                    />
+                    <h3 class="point-font">작은 숲의 요정</h3>
+                    <p>캐릭터 애니메이션</p>
+                </div>
+
+                <!-- 프로젝트 4 -->
+                <div
+                    class="work-card"
+                    data-title="별이 내리는 밤"
+                    data-category="웹 인터랙티브"
+                    data-desc="실사 촬영본에 2D 일러스트 에셋을 합성하여 동화 같은 분위기를 연출한 영상입니다. 프리미어 프로와 애프터이펙트를 사용했습니다."
+                    data-video="https://cdn.pixabay.com/video/2020/05/13/38891-419525263_large.mp4"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=800"
+                        class="work-img"
+                    />
+                    <h3 class="point-font">별이 내리는 밤</h3>
+                    <p>웹 인터랙티브</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. FEATURED PROJECT (스와이퍼 적용) -->
+        <section id="featured" class="featured-section">
+            <div class="swiper storySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="storybook">
+                            <div
+                                class="story-img"
+                                style="
+                                    background-image: url(&quot;https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1000&quot;);
+                                "
+                            ></div>
+                            <div class="story-text">
+                                <h2 class="point-font">기억이 머무는 숲</h2>
+                                <h4 class="point-font">2026 수목장림 일러스트 애니메이션 프로젝트</h4>
+                                <p>
+                                    "떠남은 끝이 아니라, 숲에서의 새로운 만남입니다."<br /><br />
+                                    삶과 죽음, 그리고 잊혀지지 않는 기억의 연결고리를 따뜻한 시선으로 담아낸 단편
+                                    애니메이션 작업입니다. 손이 투과되는 연출과 서정적인 숲의 이미지를 통해, 헤어짐이
+                                    주는 슬픔을 잔잔한 위로로 승화시키고자 했습니다.
+                                </p>
+                                <a href="#" class="story-btn">기획 노트 자세히 보기 ➔</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="storybook">
+                            <div
+                                class="story-img"
+                                style="
+                                    background-image: url(&quot;https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1000&quot;);
+                                "
+                            ></div>
+                            <div class="story-text">
+                                <h2 class="point-font">여름의 조각들</h2>
+                                <h4 class="point-font">2025 개인 단편 모션 그래픽스</h4>
+                                <p>
+                                    매미 소리가 가득했던 어린 시절의 찬란한 여름방학을 모티브로 하였습니다.<br /><br />
+                                    짙은 녹음과 강렬한 햇빛의 대비를 활용하여, 돌아갈 수 없는 시간에 대한 향수를 담아낸
+                                    영상 기록물입니다.
+                                </p>
+                                <a href="#" class="story-btn">기획 노트 자세히 보기 ➔</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="storybook">
+                            <div
+                                class="story-img"
+                                style="
+                                    background-image: url(&quot;https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1000&quot;);
+                                "
+                            ></div>
+                            <div class="story-text">
+                                <h2 class="point-font">구름의 노래</h2>
+                                <h4 class="point-font">2024 뮤직비디오 타이포그래피</h4>
+                                <p>
+                                    바람의 흐름에 따라 시시각각 변하는 구름의 모양처럼, 감정의 변화를 시각화한
+                                    작업입니다.<br /><br />
+                                    가사의 리듬감에 맞춰 텍스트와 배경 일러스트가 유기적으로 상호작용하도록 애니메이션을
+                                    설계했습니다.
+                                </p>
+                                <a href="#" class="story-btn">기획 노트 자세히 보기 ➔</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- 05. ABOUT -->
+        <section id="about">
+            <div class="about-container">
+                <div class="about-drawing"></div>
+                <div class="about-text">
+                    <h2 class="point-font">안녕하세요,<br />이야기의 온기를 전하는 디자이너입니다.</h2>
+                    <p>
+                        차가운 디지털 화면 속에서도 사람의 체온이 느껴지는 작업을 지향합니다. 영상 편집과 일러스트를
+                        결합하여, 오래도록 기억에 남는 한 편의 동화 같은 장면들을 만들어가고 있습니다.
+                    </p>
+
+                    <div>
+                        <span class="skill-tag">After Effects</span>
+                        <span class="skill-tag">Premiere Pro</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Illustrator</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. FOOTER -->
+        <footer id="contact">
+            <div class="footer-icon">📮</div>
+            <h2 class="footer-title point-font">새로운 이야기의 시작</h2>
+            <div class="footer-links">
+                <a href="mailto:juhyeong@email.com">이메일 보내기</a>
+                <a href="#">인스타그램</a>
+                <a href="#">비메오 채널</a>
+            </div>
+            <div style="opacity: 0.6; font-size: 0.9rem">© 2026 Juhyeong. All rights reserved.</div>
+        </footer>
+
+        <!-- 모달창 (클릭 시 나타나는 팝업 영역 추가) -->
+        <div class="modal-overlay" id="workModal">
+            <div class="modal-content">
+                <span class="modal-close" id="closeModal">&times;</span>
+                <div class="modal-video-box">
+                    <!-- 컨트롤(재생/일시정지 바)이 포함된 비디오 태그 -->
+                    <video id="modalVideo" src="" controls></video>
+                </div>
+                <div class="modal-info">
+                    <h2 class="point-font" id="modalTitle">프로젝트 제목</h2>
+                    <div class="modal-category" id="modalCategory">카테고리</div>
+                    <p id="modalDesc">프로젝트 상세 설명이 이곳에 들어갑니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swiper.js 스크립트 추가 -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- 스크롤 이벤트, Swiper 초기화 및 모달 스크립트 -->
+        <script>
+            // 헤더 스크롤 효과
+            const header = document.getElementById("header");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            // 우아하게 겹쳐지면서 전환되는 Swiper (책장 넘기는 느낌)
+            const swiper = new Swiper(".storySwiper", {
+                loop: true,
+                speed: 1000,
+                grabCursor: true,
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-15%", 0, -200],
+                        opacity: 0,
+                    },
+                    next: {
+                        translate: ["100%", 0, 0],
+                    },
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            // 모달창 컨트롤 자바스크립트 추가
+            const modal = document.getElementById("workModal");
+            const closeModalBtn = document.getElementById("closeModal");
+            const workCards = document.querySelectorAll(".work-card");
+
+            const modalVideo = document.getElementById("modalVideo");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalCategory = document.getElementById("modalCategory");
+            const modalDesc = document.getElementById("modalDesc");
+
+            // 각 카드 클릭 시 모달 열기
+            workCards.forEach((card) => {
+                card.addEventListener("click", () => {
+                    // 카드에 숨겨둔 데이터 가져오기
+                    const title = card.getAttribute("data-title");
+                    const category = card.getAttribute("data-category");
+                    const desc = card.getAttribute("data-desc");
+                    const videoSrc = card.getAttribute("data-video");
+
+                    // 모달창 내용 채우기
+                    modalTitle.textContent = title;
+                    modalCategory.textContent = category;
+                    modalDesc.textContent = desc;
+                    modalVideo.src = videoSrc;
+
+                    // 모달창 보이기 및 바탕화면 스크롤 막기
+                    modal.classList.add("active");
+                    document.body.style.overflow = "hidden";
+
+                    // 영상 자동 재생 (원치 않으시면 지워주세요)
+                    modalVideo.play();
+                });
+            });
+
+            // 모달창 닫기 함수
+            const closeModal = () => {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto"; // 스크롤 다시 허용
+                modalVideo.pause(); // 닫을 때 영상 일시정지
+                modalVideo.src = ""; // 소스 초기화 (배경음악 계속 재생 방지)
+            };
+
+            // X 버튼 누르면 닫기
+            closeModalBtn.addEventListener("click", closeModal);
+
+            // 모달창 바깥(어두운 배경) 누르면 닫기
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        </script>
+    </body>
+</html>
