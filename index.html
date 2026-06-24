@@ -684,80 +684,291 @@
                         .footer-links a:hover {
                             color: var(--accent-yellow);
                         }
-/* ================= 수평 마스킹 테이프 MARQUEE ================= */
-.tape-marquee-wrapper {
-    width: 100%;
-    padding: 3rem 0; /* 위아래 여백 */
-    overflow: hidden;
-    position: relative;
-    background: transparent;
-}
+                        /* ================= 수평 마스킹 테이프 MARQUEE ================= */
+                        .tape-marquee-wrapper {
+                            width: 100%;
+                            padding: 3rem 0; /* 위아래 여백 */
+                            overflow: hidden;
+                            position: relative;
+                            background: transparent;
+                        }
 
-.tape-marquee {
-    background-color: rgba(126, 155, 118, 0.15); /* 반투명한 테이프 질감 */
-    border-top: 1px dashed rgba(92, 74, 61, 0.3);
-    border-bottom: 1px dashed rgba(92, 74, 61, 0.3);
-    padding: 20px 0;
-    mix-blend-mode: multiply; /* 배경 종이와 자연스럽게 겹침 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-    white-space: nowrap;
-}
+                        .tape-marquee {
+                            background-color: rgba(126, 155, 118, 0.15); /* 반투명한 테이프 질감 */
+                            border-top: 1px dashed rgba(92, 74, 61, 0.3);
+                            border-bottom: 1px dashed rgba(92, 74, 61, 0.3);
+                            padding: 20px 0;
+                            mix-blend-mode: multiply; /* 배경 종이와 자연스럽게 겹침 */
+                            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+                            white-space: nowrap;
+                        }
 
-.marquee-content {
-    display: inline-flex;
-    align-items: center;
-    animation: tape-marquee 25s linear infinite;
-}
+                        .marquee-content {
+                            display: inline-flex;
+                            align-items: center;
+                            animation: tape-marquee 25s linear infinite;
+                        }
 
-.tape-marquee-wrapper:hover .marquee-content {
-    animation-play-state: paused;
-}
+                        .tape-marquee-wrapper:hover .marquee-content {
+                            animation-play-state: paused;
+                        }
 
-/* 글자 및 여백 스타일 */
-.tape-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    margin: 0 50px; /* 나뭇잎 장식 대신 넉넉한 여백으로 구분 */
-    font-family: "Gowun Dodum", sans-serif;
-    font-size: 1.2rem;
-    color: var(--text-forest);
-    font-weight: bold;
-}
+                        /* 글자 및 여백 스타일 */
+                        .tape-item {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 15px;
+                            margin: 0 50px; /* 나뭇잎 장식 대신 넉넉한 여백으로 구분 */
+                            font-family: "Gowun Dodum", sans-serif;
+                            font-size: 1.2rem;
+                            color: var(--text-forest);
+                            font-weight: bold;
+                        }
 
-/* 컬러 소프트웨어 아이콘 */
-.tool-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    font-weight: 900;
-    font-size: 1.1rem;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-}
+                        /* 컬러 소프트웨어 아이콘 */
+                        .tool-icon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 8px;
+                            font-family: Arial, sans-serif;
+                            font-weight: 900;
+                            font-size: 1.1rem;
+                            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+                        }
 
-.ae { background: #00005b; color: #9999ff; border: 2px solid #9999ff; }
-.pr { background: #00005b; color: #ea77ff; border: 2px solid #ea77ff; }
-.ps { background: #001e36; color: #31a8ff; border: 2px solid #31a8ff; }
-.ai { background: #330000; color: #ff9a00; border: 2px solid #ff9a00; }
-.figma { background: #1e1e1e; color: #00d084; border: 2px solid #00d084; }
-.ai-gen { background: var(--text-forest); color: var(--accent-yellow); border: 2px solid var(--accent-yellow); }
+                        .ae {
+                            background: #00005b;
+                            color: #9999ff;
+                            border: 2px solid #9999ff;
+                        }
+                        .pr {
+                            background: #00005b;
+                            color: #ea77ff;
+                            border: 2px solid #ea77ff;
+                        }
+                        .ps {
+                            background: #001e36;
+                            color: #31a8ff;
+                            border: 2px solid #31a8ff;
+                        }
+                        .ai {
+                            background: #330000;
+                            color: #ff9a00;
+                            border: 2px solid #ff9a00;
+                        }
+                        .figma {
+                            background: #1e1e1e;
+                            color: #00d084;
+                            border: 2px solid #00d084;
+                        }
+                        .ai-gen {
+                            background: var(--text-forest);
+                            color: var(--accent-yellow);
+                            border: 2px solid var(--accent-yellow);
+                        }
+                        /* ================= MODAL DETAILS ================= */
 
-/* 스크롤 애니메이션 */
-@keyframes tape-marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-}
-t
-/* 모바일 화면 대응 */
-@media (max-width: 768px) {
-    .tape-marquee { padding: 15px 0; }
-    .tape-item { font-size: 1rem; margin: 0 30px; }
-    .tool-icon { width: 30px; height: 30px; font-size: 0.9rem; }
-}
+                        .modal-details {
+                            margin-top: 40px;
+                        }
+
+                        .summary-grid {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            gap: 20px;
+                            margin-bottom: 60px;
+                        }
+
+                        .summary-item {
+                            background: #fff;
+                            padding: 20px;
+                            border-radius: 12px;
+                            border: 1px solid #e7dfd1;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                        }
+
+                        .summary-item strong {
+                            display: block;
+                            font-size: 0.9rem;
+                            color: var(--accent-green);
+                            margin-bottom: 8px;
+                        }
+
+                        .summary-item span {
+                            font-size: 1rem;
+                            color: var(--text-forest);
+                            font-weight: 500;
+                        }
+
+                        /* ================= JOURNAL ================= */
+
+                        .work-log {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                            margin-bottom: 60px;
+                        }
+
+                        .log-item {
+                            background: #fff;
+                            padding: 25px;
+                            border-left: 4px solid var(--accent-green);
+                            border-radius: 12px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                        }
+
+                        .log-item h4 {
+                            margin-bottom: 10px;
+                            color: var(--text-forest);
+                        }
+
+                        .log-item p {
+                            color: var(--text-brown);
+                            line-height: 1.8;
+                        }
+
+                        /* ================= PROCESS ================= */
+
+                        .process-timeline {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 40px;
+                            margin-bottom: 60px;
+                        }
+
+                        .process-step {
+                            display: grid;
+                            grid-template-columns: 320px 1fr;
+                            gap: 30px;
+                            align-items: center;
+                            background: #fff;
+                            padding: 25px;
+                            border-radius: 18px;
+                            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+                        }
+
+                        .process-media img {
+                            width: 100%;
+                            border-radius: 12px;
+                            display: block;
+                        }
+
+                        .process-content h4 {
+                            margin-bottom: 12px;
+                            font-size: 1.3rem;
+                            color: var(--text-forest);
+                        }
+
+                        .process-content p {
+                            margin-bottom: 20px;
+                            color: var(--text-brown);
+                        }
+
+                        .process-tags {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            margin-bottom: 20px;
+                        }
+
+                        .process-tags span {
+                            background: rgba(126, 155, 118, 0.15);
+                            color: var(--text-forest);
+                            padding: 6px 14px;
+                            border-radius: 999px;
+                            font-size: 0.85rem;
+                        }
+
+                        .process-tools strong {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+
+                        .tool-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                        }
+
+                        .tool-list span {
+                            background: #f4f1ea;
+                            padding: 6px 12px;
+                            border-radius: 8px;
+                            font-size: 0.9rem;
+                        }
+
+                        /* ================= PROBLEM SOLVING ================= */
+
+                        .problem-card {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 20px;
+                            margin-top: 20px;
+                        }
+
+                        .problem-block {
+                            background: #fff;
+                            padding: 25px;
+                            border-radius: 15px;
+                            border: 1px solid #e7dfd1;
+                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+                        }
+
+                        .problem-block strong {
+                            display: block;
+                            margin-bottom: 12px;
+                            color: var(--accent-green);
+                            font-size: 1.1rem;
+                        }
+
+                        .problem-block p {
+                            color: var(--text-brown);
+                            line-height: 1.8;
+                        }
+
+                        /* ================= MOBILE ================= */
+
+                        @media (max-width: 768px) {
+                            .summary-grid {
+                                grid-template-columns: 1fr;
+                            }
+
+                            .process-step {
+                                grid-template-columns: 1fr;
+                            }
+
+                            .problem-card {
+                                grid-template-columns: 1fr;
+                            }
+                        }
+                        /* 스크롤 애니메이션 */
+                        @keyframes tape-marquee {
+                            0% {
+                                transform: translateX(0%);
+                            }
+                            100% {
+                                transform: translateX(-50%);
+                            }
+                        }
+
+                        /* 모바일 화면 대응 */
+                        @media (max-width: 768px) {
+                            .tape-marquee {
+                                padding: 15px 0;
+                            }
+                            .tape-item {
+                                font-size: 1rem;
+                                margin: 0 30px;
+                            }
+                            .tool-icon {
+                                width: 30px;
+                                height: 30px;
+                                font-size: 0.9rem;
+                            }
+                        }
                         /* 반응형 (모바일 & 태블릿 레이아웃 변경) */
                         @media (max-width: 992px) {
                             .hero {
@@ -853,54 +1064,29 @@ t
                         </div>
                     </section>
                     <div class="tape-marquee-wrapper">
-    <div class="tape-marquee">
-        <div class="marquee-content">
-            <div class="tape-item">
-                <span class="tool-icon ae">Ae</span> After Effects
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon pr">Pr</span> Premiere Pro
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ps">Ps</span> Photoshop
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ai">Ai</span> Illustrator
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon figma">F</span> Figma
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ai-gen">✨</span> AI Generation
-            </div>
+                        <div class="tape-marquee">
+                            <div class="marquee-content">
+                                <div class="tape-item"><span class="tool-icon ae">Ae</span> After Effects</div>
+                                <div class="tape-item"><span class="tool-icon pr">Pr</span> Premiere Pro</div>
+                                <div class="tape-item"><span class="tool-icon ps">Ps</span> Photoshop</div>
+                                <div class="tape-item"><span class="tool-icon ai">Ai</span> Illustrator</div>
+                                <div class="tape-item"><span class="tool-icon figma">F</span> Figma</div>
+                                <div class="tape-item"><span class="tool-icon ai-gen">✨</span> AI Generation</div>
 
-            <div class="tape-item">
-                <span class="tool-icon ae">Ae</span> After Effects
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon pr">Pr</span> Premiere Pro
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ps">Ps</span> Photoshop
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ai">Ai</span> Illustrator
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon figma">F</span> Figma
-            </div>
-            <div class="tape-item">
-                <span class="tool-icon ai-gen">✨</span> AI Generation
-            </div>
-        </div>
-    </div>
-</div>
+                                <div class="tape-item"><span class="tool-icon ae">Ae</span> After Effects</div>
+                                <div class="tape-item"><span class="tool-icon pr">Pr</span> Premiere Pro</div>
+                                <div class="tape-item"><span class="tool-icon ps">Ps</span> Photoshop</div>
+                                <div class="tape-item"><span class="tool-icon ai">Ai</span> Illustrator</div>
+                                <div class="tape-item"><span class="tool-icon figma">F</span> Figma</div>
+                                <div class="tape-item"><span class="tool-icon ai-gen">✨</span> AI Generation</div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- 03. WORKS PREVIEW (데이터 속성 추가) -->
+                    <!-- 03. WORKS PREVIEW (데이터 속성 추가 및 상세내용 숨김) -->
                     <section id="works">
                         <h2 class="section-title point-font">서랍 속 작업물</h2>
                         <div class="works-grid">
-                            <!-- 프로젝트 1 (data-* 속성에 모달창에 띄울 정보 입력) -->
                             <div
                                 class="work-card"
                                 data-title="바람이 머무는 곳"
@@ -911,9 +1097,132 @@ t
                                 <img src="images/1.png" class="work-img" />
                                 <h3 class="point-font">이름이 머무는 숲</h3>
                                 <p>시네마틱 AI 영상</p>
+
+                                <div class="card-details" style="display: none">
+                                    <h3 class="point-font modal-section-title">Project Overview</h3>
+                                    <div class="summary-grid">
+                                        <div class="summary-item"><strong>기간</strong><span>2026.06</span></div>
+                                        <div class="summary-item">
+                                            <strong>역할</strong><span>기획 · 촬영 · 편집</span>
+                                        </div>
+                                        <div class="summary-item"><strong>기여도</strong><span>100%</span></div>
+                                        <div class="summary-item">
+                                            <strong>사용 툴</strong><span>Premiere Pro · After Effects</span>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Production Journal</h3>
+                                    <div class="work-log">
+                                        <div class="log-item">
+                                            <h4>Pre Production</h4>
+                                            <p>
+                                                브랜드 분석과 레퍼런스 조사를 통해 영상의 방향성을 설정하고 스토리보드
+                                                및 촬영 콘티를 제작했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Production</h4>
+                                            <p>
+                                                제품의 질감을 강조하기 위해 조명 배치와 카메라 구도를 설계하고 촬영
+                                                현장에서 세팅을 조정했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Post Production</h4>
+                                            <p>
+                                                컷 편집, 모션그래픽, 색보정을 진행하여 브랜드 무드에 맞는 최종 영상을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Process Breakdown</h3>
+                                    <div class="process-timeline">
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process01.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Planning & Storyboard</h4>
+                                                <p>
+                                                    브랜드 분석과 레퍼런스 조사를 기반으로 영상 콘셉트와 컷 구성을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Research</span><span>Storyboard</span><span>Shot List</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Figma</span><span>Photoshop</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process02.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Lighting Setup</h4>
+                                                <p>
+                                                    제품의 질감과 하이라이트를 강조하기 위해 조명 위치와 확산광을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>3 Point Lighting</span><span>Diffusion</span
+                                                    ><span>Reflection Control</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Softbox</span><span>Reflector</span><span>Diffuser</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process03.gif" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Editing Process</h4>
+                                                <p>
+                                                    리듬감 있는 컷 편집과 전환 효과를 활용하여 자연스럽고 몰입감 있는
+                                                    흐름을 구현했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Match Cut</span><span>Speed Ramp</span
+                                                    ><span>Rhythm Editing</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Premiere Pro</span><span>After Effects</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Problem Solving</h3>
+                                    <div class="problem-card">
+                                        <div class="problem-block">
+                                            <strong>문제</strong>
+                                            <p>제품 표면 반사가 과도하게 발생하여 질감 표현이 어려웠습니다.</p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>해결</strong>
+                                            <p>
+                                                디퓨저와 플래그를 활용해 광원을 제어하고 색보정으로 전체 톤을
+                                                통일했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>결과</strong>
+                                            <p>
+                                                제품의 디테일을 선명하게 표현하고 브랜드 이미지에 맞는 비주얼을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- 프로젝트 2 -->
                             <div
                                 class="work-card"
                                 data-title="구름 너머의 마을"
@@ -924,9 +1233,132 @@ t
                                 <img src="images/당수1.png" class="work-img" />
                                 <h3 class="point-font">천연당</h3>
                                 <p>스토리형 인포그래픽</p>
+
+                                <div class="card-details" style="display: none">
+                                    <h3 class="point-font modal-section-title">Project Overview</h3>
+                                    <div class="summary-grid">
+                                        <div class="summary-item"><strong>기간</strong><span>2026.06</span></div>
+                                        <div class="summary-item">
+                                            <strong>역할</strong><span>기획 · 촬영 · 편집</span>
+                                        </div>
+                                        <div class="summary-item"><strong>기여도</strong><span>100%</span></div>
+                                        <div class="summary-item">
+                                            <strong>사용 툴</strong><span>Premiere Pro · After Effects</span>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Production Journal</h3>
+                                    <div class="work-log">
+                                        <div class="log-item">
+                                            <h4>Pre Production</h4>
+                                            <p>
+                                                브랜드 분석과 레퍼런스 조사를 통해 영상의 방향성을 설정하고 스토리보드
+                                                및 촬영 콘티를 제작했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Production</h4>
+                                            <p>
+                                                제품의 질감을 강조하기 위해 조명 배치와 카메라 구도를 설계하고 촬영
+                                                현장에서 세팅을 조정했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Post Production</h4>
+                                            <p>
+                                                컷 편집, 모션그래픽, 색보정을 진행하여 브랜드 무드에 맞는 최종 영상을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Process Breakdown</h3>
+                                    <div class="process-timeline">
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process01.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Planning & Storyboard</h4>
+                                                <p>
+                                                    브랜드 분석과 레퍼런스 조사를 기반으로 영상 콘셉트와 컷 구성을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Research</span><span>Storyboard</span><span>Shot List</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Figma</span><span>Photoshop</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process02.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Lighting Setup</h4>
+                                                <p>
+                                                    제품의 질감과 하이라이트를 강조하기 위해 조명 위치와 확산광을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>3 Point Lighting</span><span>Diffusion</span
+                                                    ><span>Reflection Control</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Softbox</span><span>Reflector</span><span>Diffuser</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process03.gif" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Editing Process</h4>
+                                                <p>
+                                                    리듬감 있는 컷 편집과 전환 효과를 활용하여 자연스럽고 몰입감 있는
+                                                    흐름을 구현했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Match Cut</span><span>Speed Ramp</span
+                                                    ><span>Rhythm Editing</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Premiere Pro</span><span>After Effects</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Problem Solving</h3>
+                                    <div class="problem-card">
+                                        <div class="problem-block">
+                                            <strong>문제</strong>
+                                            <p>제품 표면 반사가 과도하게 발생하여 질감 표현이 어려웠습니다.</p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>해결</strong>
+                                            <p>
+                                                디퓨저와 플래그를 활용해 광원을 제어하고 색보정으로 전체 톤을
+                                                통일했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>결과</strong>
+                                            <p>
+                                                제품의 디테일을 선명하게 표현하고 브랜드 이미지에 맞는 비주얼을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- 프로젝트 3 -->
                             <div
                                 class="work-card"
                                 data-title="작은 숲의 요정"
@@ -940,9 +1372,132 @@ t
                                 />
                                 <h3 class="point-font">작은 숲의 요정</h3>
                                 <p>캐릭터 애니메이션</p>
+
+                                <div class="card-details" style="display: none">
+                                    <h3 class="point-font modal-section-title">Project Overview</h3>
+                                    <div class="summary-grid">
+                                        <div class="summary-item"><strong>기간</strong><span>2026.06</span></div>
+                                        <div class="summary-item">
+                                            <strong>역할</strong><span>기획 · 촬영 · 편집</span>
+                                        </div>
+                                        <div class="summary-item"><strong>기여도</strong><span>100%</span></div>
+                                        <div class="summary-item">
+                                            <strong>사용 툴</strong><span>Premiere Pro · After Effects</span>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Production Journal</h3>
+                                    <div class="work-log">
+                                        <div class="log-item">
+                                            <h4>Pre Production</h4>
+                                            <p>
+                                                브랜드 분석과 레퍼런스 조사를 통해 영상의 방향성을 설정하고 스토리보드
+                                                및 촬영 콘티를 제작했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Production</h4>
+                                            <p>
+                                                제품의 질감을 강조하기 위해 조명 배치와 카메라 구도를 설계하고 촬영
+                                                현장에서 세팅을 조정했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Post Production</h4>
+                                            <p>
+                                                컷 편집, 모션그래픽, 색보정을 진행하여 브랜드 무드에 맞는 최종 영상을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Process Breakdown</h3>
+                                    <div class="process-timeline">
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process01.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Planning & Storyboard</h4>
+                                                <p>
+                                                    브랜드 분석과 레퍼런스 조사를 기반으로 영상 콘셉트와 컷 구성을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Research</span><span>Storyboard</span><span>Shot List</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Figma</span><span>Photoshop</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process02.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Lighting Setup</h4>
+                                                <p>
+                                                    제품의 질감과 하이라이트를 강조하기 위해 조명 위치와 확산광을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>3 Point Lighting</span><span>Diffusion</span
+                                                    ><span>Reflection Control</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Softbox</span><span>Reflector</span><span>Diffuser</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process03.gif" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Editing Process</h4>
+                                                <p>
+                                                    리듬감 있는 컷 편집과 전환 효과를 활용하여 자연스럽고 몰입감 있는
+                                                    흐름을 구현했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Match Cut</span><span>Speed Ramp</span
+                                                    ><span>Rhythm Editing</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Premiere Pro</span><span>After Effects</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Problem Solving</h3>
+                                    <div class="problem-card">
+                                        <div class="problem-block">
+                                            <strong>문제</strong>
+                                            <p>제품 표면 반사가 과도하게 발생하여 질감 표현이 어려웠습니다.</p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>해결</strong>
+                                            <p>
+                                                디퓨저와 플래그를 활용해 광원을 제어하고 색보정으로 전체 톤을
+                                                통일했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>결과</strong>
+                                            <p>
+                                                제품의 디테일을 선명하게 표현하고 브랜드 이미지에 맞는 비주얼을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- 프로젝트 4 -->
                             <div
                                 class="work-card"
                                 data-title="별이 내리는 밤"
@@ -956,6 +1511,130 @@ t
                                 />
                                 <h3 class="point-font">별이 내리는 밤</h3>
                                 <p>웹 인터랙티브</p>
+
+                                <div class="card-details" style="display: none">
+                                    <h3 class="point-font modal-section-title">Project Overview</h3>
+                                    <div class="summary-grid">
+                                        <div class="summary-item"><strong>기간</strong><span>2026.06</span></div>
+                                        <div class="summary-item">
+                                            <strong>역할</strong><span>기획 · 촬영 · 편집</span>
+                                        </div>
+                                        <div class="summary-item"><strong>기여도</strong><span>100%</span></div>
+                                        <div class="summary-item">
+                                            <strong>사용 툴</strong><span>Premiere Pro · After Effects</span>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Production Journal</h3>
+                                    <div class="work-log">
+                                        <div class="log-item">
+                                            <h4>Pre Production</h4>
+                                            <p>
+                                                브랜드 분석과 레퍼런스 조사를 통해 영상의 방향성을 설정하고 스토리보드
+                                                및 촬영 콘티를 제작했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Production</h4>
+                                            <p>
+                                                제품의 질감을 강조하기 위해 조명 배치와 카메라 구도를 설계하고 촬영
+                                                현장에서 세팅을 조정했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="log-item">
+                                            <h4>Post Production</h4>
+                                            <p>
+                                                컷 편집, 모션그래픽, 색보정을 진행하여 브랜드 무드에 맞는 최종 영상을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Process Breakdown</h3>
+                                    <div class="process-timeline">
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process01.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Planning & Storyboard</h4>
+                                                <p>
+                                                    브랜드 분석과 레퍼런스 조사를 기반으로 영상 콘셉트와 컷 구성을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Research</span><span>Storyboard</span><span>Shot List</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Figma</span><span>Photoshop</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process02.jpg" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Lighting Setup</h4>
+                                                <p>
+                                                    제품의 질감과 하이라이트를 강조하기 위해 조명 위치와 확산광을
+                                                    설계했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>3 Point Lighting</span><span>Diffusion</span
+                                                    ><span>Reflection Control</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Softbox</span><span>Reflector</span><span>Diffuser</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="process-media"><img src="images/process03.gif" alt="" /></div>
+                                            <div class="process-content">
+                                                <h4>Editing Process</h4>
+                                                <p>
+                                                    리듬감 있는 컷 편집과 전환 효과를 활용하여 자연스럽고 몰입감 있는
+                                                    흐름을 구현했습니다.
+                                                </p>
+                                                <div class="process-tags">
+                                                    <span>Match Cut</span><span>Speed Ramp</span
+                                                    ><span>Rhythm Editing</span>
+                                                </div>
+                                                <div class="process-tools">
+                                                    <strong>Used Tools</strong>
+                                                    <div class="tool-list">
+                                                        <span>Premiere Pro</span><span>After Effects</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="point-font modal-section-title">Problem Solving</h3>
+                                    <div class="problem-card">
+                                        <div class="problem-block">
+                                            <strong>문제</strong>
+                                            <p>제품 표면 반사가 과도하게 발생하여 질감 표현이 어려웠습니다.</p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>해결</strong>
+                                            <p>
+                                                디퓨저와 플래그를 활용해 광원을 제어하고 색보정으로 전체 톤을
+                                                통일했습니다.
+                                            </p>
+                                        </div>
+                                        <div class="problem-block">
+                                            <strong>결과</strong>
+                                            <p>
+                                                제품의 디테일을 선명하게 표현하고 브랜드 이미지에 맞는 비주얼을
+                                                완성했습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -1078,12 +1757,10 @@ t
                         <div class="modal-content">
                             <span class="modal-close" id="closeModal">&times;</span>
 
-                            <!-- 1. 상단 영상/이미지 영역 -->
                             <div class="modal-video-box" style="width: 100%; max-height: 60vh">
                                 <video id="modalVideo" src="" controls></video>
                             </div>
 
-                            <!-- 2. 프로젝트 개요 -->
                             <div class="modal-info">
                                 <h2 class="point-font" id="modalTitle" style="font-size: 2.5rem">프로젝트 제목</h2>
                                 <div class="modal-category" id="modalCategory" style="font-size: 1.2rem">카테고리</div>
@@ -1092,22 +1769,7 @@ t
                                 </p>
                             </div>
 
-                            <!-- 3. 상세 작업 과정 (JS로 동적 주입하거나, 내용별로 구성 가능) -->
-                            <div class="modal-details">
-                                <h3 class="point-font modal-section-title">작업 일지 및 테크니컬 노트</h3>
-                                <p>초기 스크립트 작성, 캐릭터 스케치, 그리고 UI 레이아웃 설계 과정입니다.</p>
-                                <div class="modal-process-grid">
-                                    <!-- 과정 이미지들이 들어갈 자리 -->
-                                    <img
-                                        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800"
-                                        alt="process 1"
-                                    />
-                                    <img
-                                        src="https://images.unsplash.com/photo-1490682143684-14369e18dce8?auto=format&fit=crop&q=80&w=800"
-                                        alt="process 2"
-                                    />
-                                </div>
-                            </div>
+                            <div class="modal-details" id="modalDetailsContainer"></div>
                         </div>
                     </div>
                     <!-- Swiper.js 스크립트 추가 -->
@@ -1151,7 +1813,7 @@ t
                             },
                         });
 
-                        // 모달창 컨트롤 자바스크립트 추가
+                        // ================= 모달창 컨트롤 자바스크립트 =================
                         const modal = document.getElementById("workModal");
                         const closeModalBtn = document.getElementById("closeModal");
                         const workCards = document.querySelectorAll(".work-card");
@@ -1160,27 +1822,34 @@ t
                         const modalTitle = document.getElementById("modalTitle");
                         const modalCategory = document.getElementById("modalCategory");
                         const modalDesc = document.getElementById("modalDesc");
+                        const modalDetailsContainer = document.getElementById("modalDetailsContainer"); // ✨ 추가된 변수
 
                         // 각 카드 클릭 시 모달 열기
                         workCards.forEach((card) => {
                             card.addEventListener("click", () => {
-                                // 카드에 숨겨둔 데이터 가져오기
+                                // 1. 카드에 숨겨둔 데이터 가져오기 (data- 속성)
                                 const title = card.getAttribute("data-title");
                                 const category = card.getAttribute("data-category");
                                 const desc = card.getAttribute("data-desc");
                                 const videoSrc = card.getAttribute("data-video");
 
-                                // 모달창 내용 채우기
+                                // ✨ 2. 카드 안에 숨겨둔 HTML(상세 내용) 가져오기
+                                const specificDetailsHTML = card.querySelector(".card-details").innerHTML;
+
+                                // 3. 모달창 내용 채우기
                                 modalTitle.textContent = title;
                                 modalCategory.textContent = category;
                                 modalDesc.textContent = desc;
                                 modalVideo.src = videoSrc;
 
-                                // 모달창 보이기 및 바탕화면 스크롤 막기
+                                // ✨ 4. 모달창의 상세 영역(하단)을 클릭한 카드의 HTML로 덮어쓰기
+                                modalDetailsContainer.innerHTML = specificDetailsHTML;
+
+                                // 5. 모달창 보이기 및 바탕화면 스크롤 막기
                                 modal.classList.add("active");
                                 document.body.style.overflow = "hidden";
 
-                                // 영상 자동 재생 (원치 않으시면 지워주세요)
+                                // 영상 자동 재생
                                 modalVideo.play();
                             });
                         });
@@ -1190,7 +1859,7 @@ t
                             modal.classList.remove("active");
                             document.body.style.overflow = "auto"; // 스크롤 다시 허용
                             modalVideo.pause(); // 닫을 때 영상 일시정지
-                            modalVideo.src = ""; // 소스 초기화 (배경음악 계속 재생 방지)
+                            modalVideo.src = ""; // 소스 초기화
                         };
 
                         // X 버튼 누르면 닫기
